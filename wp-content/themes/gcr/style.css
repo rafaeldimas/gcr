@@ -1,0 +1,22 @@
+/*!
+Theme Name: GCR
+Theme URI: https://github.com/rafaeldimas/gcr
+Author: Rafael Dimas
+Description: Theme for site GCR
+Version: 1.0.0
+Text Domain: gcr
+*/
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+	position: absolute !important;
+	word-wrap: normal !important;
+}
