@@ -9,7 +9,7 @@ get_header();
 
 <main id="main" class="site-main" role="main">
 
-	<?php 
+	<?php
 	if ( have_posts() ) : ?>
 
 		<header class="page-header">
@@ -22,11 +22,11 @@ get_header();
 			get_template_part( 'template-parts/content', 'search' );
 
 		endwhile;
-	
+
 	else: ?>
 
 		<p>Sorry, but nothing matched your search terms.</p>
-	
+
 	<?php
 	endif;
 	?>
@@ -34,5 +34,4 @@ get_header();
 </main>
 
 <?php
-get_sidebar();
 get_footer();

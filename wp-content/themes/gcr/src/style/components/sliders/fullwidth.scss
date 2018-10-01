@@ -1,0 +1,21 @@
+[data-slider="fullwidth"] {
+    width: 100%;
+    max-width: 100%;
+
+    .item {
+        width: 100vw;
+        height: 500px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            height: 50%;
+        }
+    }
+}
