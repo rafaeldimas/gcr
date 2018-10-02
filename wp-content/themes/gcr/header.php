@@ -15,12 +15,17 @@
 </head>
 
 <body>
-	
+
 <a class="screen-reader-text" href="#content">Skip to content</a>
 
 <header class="site-header">
-	<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-
+    <div class="site-logo">
+        <?php
+            if (has_custom_logo()) {
+                the_custom_logo();
+            }
+        ?>
+    </div>
 	<nav class="main-navigation">
 		<?php
 		wp_nav_menu( array(
@@ -32,4 +37,3 @@
 </header>
 
 <div id="content" class="site-content">
-	

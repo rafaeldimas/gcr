@@ -1,12 +1,7 @@
-// Framework
-@import '~bulma/sass/utilities/_all';
-@import '~bulma/sass/base/_all';
-@import '~bulma/sass/layout/section';
-@import '~bulma/sass/elements/container';
-@import '~bulma/sass/elements/other';
-@import '~bulma/sass/elements/notification';
-@import '~bulma/sass/grid/columns';
+/* Framework */
+@import '~bulma/bulma';
 
+/* Loading Variable */
 @import './variable';
 
 /* Loading Components */

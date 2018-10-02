@@ -138,7 +138,7 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nvar el = document.querySelectorAll('*[data-slider=fullwidth]');\nvar options = {};\n/* harmony default export */ __webpack_exports__[\"default\"] = (function (lory) {\n  Array.prototype.slice.call(el).forEach(function (element) {\n    lory(element, options);\n  });\n});\n\n//# sourceURL=webpack:///./src/components/sliders/fullwidth.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nvar el = document.querySelectorAll('*[data-slider=fullwidth]');\nvar options = {\n  infinite: 1,\n  enableMouseEvents: true,\n  ease: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',\n  slideSpeed: 1000\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = (function (lory) {\n  Array.prototype.slice.call(el).forEach(function (element) {\n    lory(element, options);\n  });\n});\n\n//# sourceURL=webpack:///./src/components/sliders/fullwidth.js?");
 
 /***/ }),
 
