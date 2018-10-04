@@ -26,6 +26,6 @@ add_theme_support('html5', [
  * Enable support for define custom logo in theme
  */
 add_theme_support('custom-logo', [
-    'height' => '100px',
+    'height' => '200px',
     'width' => '300px',
 ]);

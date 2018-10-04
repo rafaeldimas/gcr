@@ -28,11 +28,11 @@
     </div>
 	<nav class="column is-9 main-navigation">
 		<?php
-		wp_nav_menu([
-			'theme_location' => 'menu-1',
-            'menu_id' => 'primary-menu',
-            'items_wrap' => '<ul id="%1$s" class="columns %2$s">%3$s</ul>'
-        ]);
+            wp_nav_menu([
+                'theme_location' => 'menu-1',
+                'menu_id' => 'primary-menu',
+                'items_wrap' => '<ul id="%1$s" class="columns %2$s">%3$s</ul>'
+            ]);
 		?>
 	</nav>
 </header>
