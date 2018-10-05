@@ -17,7 +17,7 @@ $customImageSizesNamed = compact('sliders'/*, 'services'*/);
 $customImageSizes = call_user_func_array('array_merge', $customImageSizesNamed);
 
 add_filter('intermediate_image_sizes', function ($image_sizes) use ($customImageSizes, $customImageSizesNamed) {
-    $postId = $_POST['post_id'] ?: false;
+    $postId = isset($_POST['post_id']) ? $_POST['post_id'] : false;
 
     if ($postId) {
         if ('sliders' === get_post_type($postId))
