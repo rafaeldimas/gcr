@@ -29,3 +29,5 @@ add_theme_support('custom-logo', [
     'height' => '200px',
     'width' => '300px',
 ]);
+
+

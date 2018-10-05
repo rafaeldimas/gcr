@@ -7,6 +7,9 @@
 /* Define configurations for Wordpress */
 require_once __DIR__.'/inc/config-wordpress.php';
 
+/* Define Image Sizes */
+require_once __DIR__.'/inc/image-size.php';
+
 /* Register Menus */
 require_once __DIR__.'/inc/menus.php';
 

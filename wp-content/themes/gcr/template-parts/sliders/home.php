@@ -4,7 +4,7 @@
         <div class="frame js_frame">
             <ul class="slides js_slides">
             <?php foreach ($sliders->posts as $post) : ?>
-                <?php $postThumbnailUrl = get_the_post_thumbnail_url($post->ID, 'full') ?: 'https://placeimg.com/1300/500/any' ?>
+                <?php $postThumbnailUrl = get_the_post_thumbnail_url($post->ID, 'slider-fullwidth') ?: 'https://placeimg.com/1300/500/any' ?>
                 <?php $style = $postThumbnailUrl ? "style='background-image: url({$postThumbnailUrl})'" : '' ?>
                 <li class="item js_slide" <?php echo $style ?>>
                     <div class="content">
