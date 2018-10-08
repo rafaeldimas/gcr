@@ -16,30 +16,11 @@
 
 <body>
 
-<a class="screen-reader-text" href="#content">Skip to content</a>
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
-<div class="content">
-    <div class="container">
-        <header class="columns site-header">
-            <div class="column is-3 site-logo">
-                <?php
-                    if (has_custom_logo()) {
-                        the_custom_logo();
-                    }
-                ?>
-            </div>
-            <nav class="column is-9 main-navigation">
-                <?php
-                    wp_nav_menu([
-                        'theme_location' => 'menu-1',
-                        'menu_id' => 'primary-menu',
-                        'items_wrap' => '<ul id="%1$s" class="columns %2$s">%3$s</ul>'
-                    ]);
-                ?>
-            </nav>
-        </header>
-    </div>
-</div>
+<header class="site-header">
+    <?php echo getNavbarMainMenu() ?>
+</header>
 
 <?php if (is_front_page()) : ?>
     <?php get_template_part('template-parts/sliders/home') ?>

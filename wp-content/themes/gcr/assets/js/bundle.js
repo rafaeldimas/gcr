@@ -130,6 +130,29 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 
 /***/ }),
 
+/***/ "./src/components/menu/index.js":
+/*!**************************************!*\
+  !*** ./src/components/menu/index.js ***!
+  \**************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _toggleActiveMobile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toggleActiveMobile */ \"./src/components/menu/toggleActiveMobile.js\");\n/* harmony import */ var _toggleActiveMobile__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_toggleActiveMobile__WEBPACK_IMPORTED_MODULE_0__);\n\n\n//# sourceURL=webpack:///./src/components/menu/index.js?");
+
+/***/ }),
+
+/***/ "./src/components/menu/toggleActiveMobile.js":
+/*!***************************************************!*\
+  !*** ./src/components/menu/toggleActiveMobile.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);\n\nif ($navbarBurgers.length > 0) {\n  $navbarBurgers.forEach(function (el) {\n    el.addEventListener('click', function () {\n      var target = el.dataset.target;\n      var $target = document.getElementById(target);\n      el.classList.toggle('is-active');\n      $target.classList.toggle('is-active');\n    });\n  });\n}\n\n//# sourceURL=webpack:///./src/components/menu/toggleActiveMobile.js?");
+
+/***/ }),
+
 /***/ "./src/components/sliders/fullwidth.js":
 /*!*********************************************!*\
   !*** ./src/components/sliders/fullwidth.js ***!
@@ -161,7 +184,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lory
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./style/app.scss */ \"./src/style/app.scss\");\n\n__webpack_require__(/*! ./components/sliders */ \"./src/components/sliders/index.js\");\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__(/*! ./style/app.scss */ \"./src/style/app.scss\");\n\n__webpack_require__(/*! ./components/sliders */ \"./src/components/sliders/index.js\");\n\n__webpack_require__(/*! ./components/menu */ \"./src/components/menu/index.js\");\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
