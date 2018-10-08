@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 08-Out-2018 às 20:38
+-- Generation Time: 08-Out-2018 às 20:56
 -- Versão do servidor: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -241,7 +241,7 @@ INSERT INTO `gcr_options` (`option_id`, `option_name`, `option_value`, `autoload
 (125, 'can_compress_scripts', '0', 'no'),
 (128, 'theme_mods_twentyseventeen', 'a:1:{s:16:\"sidebars_widgets\";a:2:{s:4:\"time\";i:1538263161;s:4:\"data\";a:4:{s:19:\"wp_inactive_widgets\";a:0:{}s:9:\"sidebar-1\";a:6:{i:0;s:8:\"search-2\";i:1;s:14:\"recent-posts-2\";i:2;s:17:\"recent-comments-2\";i:3;s:10:\"archives-2\";i:4;s:12:\"categories-2\";i:5;s:6:\"meta-2\";}s:9:\"sidebar-2\";a:0:{}s:9:\"sidebar-3\";a:0:{}}}}', 'yes'),
 (129, 'current_theme', 'GCR', 'yes'),
-(130, 'theme_mods_gcr', 'a:4:{i:0;b:0;s:18:\"nav_menu_locations\";a:2:{s:6:\"menu-1\";i:2;s:9:\"main-menu\";i:2;}s:18:\"custom_css_post_id\";i:-1;s:11:\"custom_logo\";i:53;}', 'yes'),
+(130, 'theme_mods_gcr', 'a:4:{i:0;b:0;s:18:\"nav_menu_locations\";a:2:{s:6:\"menu-1\";i:2;s:9:\"main-menu\";i:2;}s:18:\"custom_css_post_id\";i:-1;s:11:\"custom_logo\";i:60;}', 'yes'),
 (131, 'theme_switched', '', 'yes'),
 (142, 'nav_menu_options', 'a:2:{i:0;b:0;s:8:\"auto_add\";a:0:{}}', 'yes'),
 (157, 'category_children', 'a:0:{}', 'yes'),
@@ -266,7 +266,7 @@ CREATE TABLE IF NOT EXISTS `gcr_postmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=155 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=167 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `gcr_postmeta`
@@ -365,10 +365,18 @@ INSERT INTO `gcr_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALU
 (144, 47, '_thumbnail_id', '48'),
 (147, 51, '_edit_lock', '1538764662:1'),
 (150, 51, '_customize_restore_dismissed', '1'),
-(151, 53, '_wp_attached_file', '2018/10/logo-gcr.png'),
-(152, 53, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:80;s:6:\"height\";i:75;s:4:\"file\";s:20:\"2018/10/logo-gcr.png\";s:5:\"sizes\";a:0:{}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
 (153, 54, '_wp_trash_meta_status', 'publish'),
-(154, 54, '_wp_trash_meta_time', '1538764877');
+(154, 54, '_wp_trash_meta_time', '1538764877'),
+(157, 57, '_wp_attached_file', '2018/10/cropped-logo-gcr.png'),
+(158, 57, '_wp_attachment_context', 'custom-logo'),
+(159, 57, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:80;s:6:\"height\";i:80;s:4:\"file\";s:28:\"2018/10/cropped-logo-gcr.png\";s:5:\"sizes\";a:0:{}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(160, 58, '_wp_trash_meta_status', 'publish'),
+(161, 58, '_wp_trash_meta_time', '1539032075'),
+(162, 59, '_edit_lock', '1539032153:1'),
+(163, 60, '_wp_attached_file', '2018/10/logo-gcr.png'),
+(164, 60, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:80;s:6:\"height\";i:80;s:4:\"file\";s:20:\"2018/10/logo-gcr.png\";s:5:\"sizes\";a:0:{}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(165, 59, '_wp_trash_meta_status', 'publish'),
+(166, 59, '_wp_trash_meta_time', '1539032165');
 
 -- --------------------------------------------------------
 
@@ -406,7 +414,7 @@ CREATE TABLE IF NOT EXISTS `gcr_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `gcr_posts`
@@ -445,9 +453,12 @@ INSERT INTO `gcr_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `pos
 (48, 1, '2018-10-05 15:10:39', '2018-10-05 18:10:39', '', 'slider-3', '', 'inherit', 'open', 'closed', '', 'slider-3', '', '', '2018-10-05 15:10:39', '2018-10-05 18:10:39', '', 47, 'http://gcrlegalizacao.abc/wp-content/uploads/2018/10/slider-3.jpg', 0, 'attachment', 'image/jpeg', 0),
 (49, 1, '2018-10-05 15:11:16', '0000-00-00 00:00:00', '', 'Rascunho automático', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2018-10-05 15:11:16', '0000-00-00 00:00:00', '', 0, 'http://gcrlegalizacao.abc/?post_type=sliders&p=49', 0, 'sliders', '', 0),
 (51, 1, '2018-10-05 15:35:51', '0000-00-00 00:00:00', '{\n    \"gcr::custom_logo\": {\n        \"value\": \"\",\n        \"type\": \"theme_mod\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-05 18:35:51\"\n    }\n}', '', '', 'auto-draft', 'closed', 'closed', '', '649338c7-ec04-44d0-8079-bf3b9ea2bc5f', '', '', '2018-10-05 15:35:51', '0000-00-00 00:00:00', '', 0, 'http://gcrlegalizacao.abc/?p=51', 0, 'customize_changeset', '', 0),
-(53, 1, '2018-10-05 15:40:59', '2018-10-05 18:40:59', '', 'logo-gcr', '', 'inherit', 'open', 'closed', '', 'logo-gcr', '', '', '2018-10-05 15:40:59', '2018-10-05 18:40:59', '', 0, 'http://gcrlegalizacao.abc/wp-content/uploads/2018/10/logo-gcr.png', 0, 'attachment', 'image/png', 0),
 (54, 1, '2018-10-05 15:41:17', '2018-10-05 18:41:17', '{\n    \"gcr::custom_logo\": {\n        \"value\": 53,\n        \"type\": \"theme_mod\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-05 18:41:17\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', '1bc90d70-dcc3-4f65-a198-826f4c7872eb', '', '', '2018-10-05 15:41:17', '2018-10-05 18:41:17', '', 0, 'http://gcrlegalizacao.abc/1bc90d70-dcc3-4f65-a198-826f4c7872eb/', 0, 'customize_changeset', '', 0),
-(55, 1, '2018-10-08 10:15:43', '0000-00-00 00:00:00', '', 'Rascunho automático', '', 'auto-draft', 'open', 'open', '', '', '', '', '2018-10-08 10:15:43', '0000-00-00 00:00:00', '', 0, 'http://gcrlegalizacao.abc/?p=55', 0, 'post', '', 0);
+(55, 1, '2018-10-08 10:15:43', '0000-00-00 00:00:00', '', 'Rascunho automático', '', 'auto-draft', 'open', 'open', '', '', '', '', '2018-10-08 10:15:43', '0000-00-00 00:00:00', '', 0, 'http://gcrlegalizacao.abc/?p=55', 0, 'post', '', 0),
+(57, 1, '2018-10-08 17:54:29', '2018-10-08 20:54:29', 'http://gcrlegalizacao.abc/wp-content/uploads/2018/10/cropped-logo-gcr.png', 'cropped-logo-gcr.png', '', 'inherit', 'open', 'closed', '', 'cropped-logo-gcr-png', '', '', '2018-10-08 17:54:29', '2018-10-08 20:54:29', '', 0, 'http://gcrlegalizacao.abc/wp-content/uploads/2018/10/cropped-logo-gcr.png', 0, 'attachment', 'image/png', 0),
+(58, 1, '2018-10-08 17:54:35', '2018-10-08 20:54:35', '{\n    \"gcr::custom_logo\": {\n        \"value\": 57,\n        \"type\": \"theme_mod\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-08 20:54:35\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', 'f5151daf-8978-49c1-af5e-c00758d63055', '', '', '2018-10-08 17:54:35', '2018-10-08 20:54:35', '', 0, 'http://gcrlegalizacao.abc/f5151daf-8978-49c1-af5e-c00758d63055/', 0, 'customize_changeset', '', 0),
+(59, 1, '2018-10-08 17:56:05', '2018-10-08 20:56:05', '{\n    \"gcr::custom_logo\": {\n        \"value\": 60,\n        \"type\": \"theme_mod\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-08 20:56:05\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', '5123b329-c075-40b8-9d2b-0c8aec5c3fe3', '', '', '2018-10-08 17:56:05', '2018-10-08 20:56:05', '', 0, 'http://gcrlegalizacao.abc/?p=59', 0, 'customize_changeset', '', 0),
+(60, 1, '2018-10-08 17:56:00', '2018-10-08 20:56:00', '', 'logo-gcr', '', 'inherit', 'open', 'closed', '', 'logo-gcr', '', '', '2018-10-08 17:56:00', '2018-10-08 20:56:00', '', 0, 'http://gcrlegalizacao.abc/wp-content/uploads/2018/10/logo-gcr.png', 0, 'attachment', 'image/png', 0);
 
 -- --------------------------------------------------------
 
@@ -586,7 +597,7 @@ INSERT INTO `gcr_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VAL
 (13, 1, 'gcr_user_level', '10'),
 (14, 1, 'dismissed_wp_pointers', 'wp496_privacy'),
 (15, 1, 'show_welcome_panel', '0'),
-(16, 1, 'session_tokens', 'a:3:{s:64:\"d9476f340718dad6cf34f9cf8be522ce3bf381611d8e20033ec41ef810107186\";a:4:{s:10:\"expiration\";i:1539537975;s:2:\"ip\";s:9:\"127.0.0.1\";s:2:\"ua\";s:104:\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36\";s:5:\"login\";i:1538328375;}s:64:\"bcff9ba425433012a950afe93b2b21e922e4f8bf0f5b454b382647ee1ea35a66\";a:4:{s:10:\"expiration\";i:1539177303;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36\";s:5:\"login\";i:1539004503;}s:64:\"c21431d6a1bd386b5f33c8a8773cec09896422485c9f0e36cf32dc152944843f\";a:4:{s:10:\"expiration\";i:1539177342;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36\";s:5:\"login\";i:1539004542;}}'),
+(16, 1, 'session_tokens', 'a:4:{s:64:\"d9476f340718dad6cf34f9cf8be522ce3bf381611d8e20033ec41ef810107186\";a:4:{s:10:\"expiration\";i:1539537975;s:2:\"ip\";s:9:\"127.0.0.1\";s:2:\"ua\";s:104:\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36\";s:5:\"login\";i:1538328375;}s:64:\"bcff9ba425433012a950afe93b2b21e922e4f8bf0f5b454b382647ee1ea35a66\";a:4:{s:10:\"expiration\";i:1539177303;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36\";s:5:\"login\";i:1539004503;}s:64:\"c21431d6a1bd386b5f33c8a8773cec09896422485c9f0e36cf32dc152944843f\";a:4:{s:10:\"expiration\";i:1539177342;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36\";s:5:\"login\";i:1539004542;}s:64:\"afabf7ea69f5071133852fcfaa85effab374f0eacb687ff4781a97cb41bc24db\";a:4:{s:10:\"expiration\";i:1539204818;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36\";s:5:\"login\";i:1539032018;}}'),
 (17, 1, 'gcr_dashboard_quick_press_last_post_id', '55'),
 (18, 1, 'community-events-location', 'a:1:{s:2:\"ip\";s:9:\"127.0.0.0\";}'),
 (19, 1, 'managenav-menuscolumnshidden', 'a:5:{i:0;s:11:\"link-target\";i:1;s:11:\"css-classes\";i:2;s:3:\"xfn\";i:3;s:11:\"description\";i:4;s:15:\"title-attribute\";}'),
