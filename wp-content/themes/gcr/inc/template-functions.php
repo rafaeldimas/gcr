@@ -16,20 +16,24 @@ function getCustomLogoAttr() {
     return $image;
 }
 
-function getNavbarButtonAndBrand() {
+function getBrandLink($class, $link = false)
+{
     $brand = '';
     if (has_custom_logo()) {
         list($imgSrc) = getCustomLogoAttr() ?: [];
-        $homeUrl = home_url();
+        $homeUrl = $link ?: home_url();
 
-        $brand .= "<a class='navbar-item' href='{$homeUrl}'>";
+        $brand .= "<a class='{$class}' href='{$homeUrl}'>";
         $brand .=      "<img class='brand-image' src='{$imgSrc}'/>";
         $brand .= '</a>';
     }
+    return $brand;
+}
 
+function getNavbarButtonAndBrand() {
     $output = '';
     $output .= '<div class="navbar-brand">';
-    $output .=      $brand;
+    $output .=      getBrandLink('navbar-item');
     $output .=      '<button class="button navbar-burger" data-target="primary-menu">';
     $output .=          '<span></span>';
     $output .=          '<span></span>';
@@ -59,7 +63,7 @@ function getNavbarMainMenuItems() {
 function getNavbarMainMenu()
 {
     $output = '';
-    $output .= '<nav class="navbar" role="navigation" aria-label="main navigation">';
+    $output .= '<nav class="navbar container" role="navigation" aria-label="main navigation">';
     $output .= getNavbarButtonAndBrand();
     $output .= getNavbarMainMenuItems();
     $output .= '</nav>';

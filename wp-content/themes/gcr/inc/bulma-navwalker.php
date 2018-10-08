@@ -19,13 +19,13 @@
 	class Navwalker extends Walker_Nav_Menu {
 
         public function start_lvl( &$output, $depth = 0, $args = array() ) {
-           
+
             $output .= "<div class='navbar-dropdown'>";
         }
 
         public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-
-            $liClasses = 'navbar-item '.$item->title;
+            $liClasses = 'navbar-item item-'.$item->ID;
+            $liClasses .= in_array('current-menu-item', $item->classes) ? ' is-active' : '';
 
             $hasChildren = $args->walker->has_children;
             $liClasses .= $hasChildren? " has-dropdown is-hoverable": "";
@@ -43,7 +43,7 @@
                 $item->classes[] = 'has_children';
             }
         }
-        
+
         public function end_el(&$output, $item, $depth = 0, $args = array(), $id = 0 ){
 
             if(in_array("has_children", $item->classes)) {

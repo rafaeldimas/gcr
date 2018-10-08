@@ -1,0 +1,29 @@
+/* Primary Colors */
+$primaryBlue: #021c55;
+$primaryGold: #c39e36;
+
+/* Darken */
+$blueDarken: darken($primaryBlue, 10);
+$goldDarken: darken($primaryGold, 10);
+
+/* Darken Ligth */
+$blueDarkenLigth: darken($primaryBlue, 5);
+$goldDarkenLigth: darken($primaryGold, 5);
+
+/* Ligth */
+$blueLigth: ligth($primaryBlue, 10);
+$goldLigth: ligth($primaryGold, 10);
+
+$navbar-background-color: $blueDarken;
+
+
+/* Customisation Variables Bulma */
+
+$link: $primaryGold;
+$link-hover: $goldDarken;
+
+$navbar-item-color:	$goldDarken;
+$navbar-item-hover-color: #fff;
+$navbar-item-hover-background-color: $goldDarken;
+$navbar-item-active-color: #fff;
+$navbar-item-active-background-color: $goldDarken;

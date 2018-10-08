@@ -15,6 +15,7 @@
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
+    "@fortawesome/fontawesome-free": "^5.3.1",
     "babel-loader": "^8.0.4",
     "babel-preset-minify": "^0.5.0",
     "bulma": "^0.7.1",

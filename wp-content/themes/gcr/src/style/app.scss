@@ -1,8 +1,11 @@
+/* Loading Variable */
+@import './core/all';
+
 /* Framework */
 @import '~bulma/bulma';
 
-/* Loading Variable */
-@import './variable';
+/* Loading Layout */
+@import './layout/all';
 
 /* Loading Components */
 @import './components/sliders/all';

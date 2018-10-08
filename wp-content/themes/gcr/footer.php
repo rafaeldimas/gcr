@@ -9,9 +9,8 @@
     </div>
 </div>
 <footer class="site-footer">
-    <div class="copyrigth">
-        <p>Copyrigth © 2018 GCR Legalização. Desenvolvido por <a href="//aguillararts.com.br">Aguillar Arts</a></p>
-    </div>
+    <?php get_template_part('template-parts/footer/top') ?>
+    <?php get_template_part('template-parts/footer/copyrigth') ?>
 </footer>
 
 <?php wp_footer(); ?>
