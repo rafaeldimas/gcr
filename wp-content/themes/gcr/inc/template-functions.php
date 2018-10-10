@@ -16,20 +16,31 @@ function getCustomLogoAttr() {
     return $image;
 }
 
+/**
+ * @param string $class
+ * @param false|string $link
+ * @return string
+ */
 function getBrandLink($class, $link = false)
 {
-    $brand = '';
+    $brandResource = 'GCR';
     if (has_custom_logo()) {
         list($imgSrc) = getCustomLogoAttr() ?: [];
-        $homeUrl = $link ?: home_url();
-
-        $brand .= "<a class='{$class}' href='{$homeUrl}'>";
-        $brand .=      "<img class='brand-image' src='{$imgSrc}'/>";
-        $brand .= '</a>';
+        $brandResource = "<img class='brand-image' src='{$imgSrc}'/>";
     }
+
+    $homeUrl = $link ?: home_url();
+
+    $brand = '';
+    $brand .= "<a class='{$class}' href='{$homeUrl}'>";
+    $brand .= $brandResource;
+    $brand .= '</a>';
     return $brand;
 }
 
+/**
+ * @return string
+ */
 function getNavbarButtonAndBrand() {
     $output = '';
     $output .= '<div class="navbar-brand">';
@@ -44,6 +55,9 @@ function getNavbarButtonAndBrand() {
     return $output;
 }
 
+/**
+ * @return string
+ */
 function getNavbarMainMenuItems() {
     ob_start();
     wp_nav_menu([
@@ -59,7 +73,9 @@ function getNavbarMainMenuItems() {
     return ob_get_clean();
 }
 
-
+/**
+ * @return string
+ */
 function getNavbarMainMenu()
 {
     $output = '';
