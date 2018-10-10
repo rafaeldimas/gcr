@@ -1,5 +1,22 @@
 <?php
 
+function get_template_part_with_attr($slug, $name = null, $attr = []) {
+    do_action("get_template_part_{$slug}", $slug, $name);
+
+	$templates = array();
+	$name = (string) $name;
+	if ('' !== $name)
+		$templates[] = "{$slug}-{$name}.php";
+
+	$templates[] = "{$slug}.php";
+
+    if (!empty($attr)) {
+        extract($attr, EXTR_SKIP);
+    }
+
+	require_once locate_template($templates);
+}
+
 /**
  * @return WP_Query
  */
@@ -85,4 +102,15 @@ function getNavbarMainMenu()
     $output .= '</nav>';
 
     return $output;
+}
+
+/**
+ * @return WP_Post[]
+ */
+function getLatestPosts($numberposts = 10, $posttype = 'post')
+{
+    return wp_get_recent_posts([
+        'numberposts' => $numberposts,
+        'post_type' => $posttype,
+    ], false);
 }

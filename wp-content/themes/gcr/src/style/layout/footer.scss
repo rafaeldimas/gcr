@@ -1,9 +1,25 @@
 .site-footer {
     .top-footer {
         background-color: $blueDarkenLigth;
+
+        .container > .columns > div {
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        .company-info .about-company {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            color: $goldDarkenLigth;
+        }
+
+        .contact-info > div {
+            margin-bottom: 0;
+        }
     }
 
     .copyrigth {
+        padding: 15px;
         color: #fff;
         background-color: $blueDarken;
     }

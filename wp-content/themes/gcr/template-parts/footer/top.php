@@ -1,25 +1,44 @@
 <div class="top-footer">
     <div class="container">
         <div class="columns">
-            <div class="box-brand column is-4">
-                <?php echo getBrandLink('footer-brand') ?>
+            <div class="company-info column is-4">
+                <div class="box-brand">
+                    <?php echo getBrandLink('footer-brand') ?>
+                </div>
+                <p class="about-company">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti,
+                    obcaecati eum corporis iure neque fugiat dolorem quae est ipsa optio facilis,
+                    eligendi necessitatibus delectus suscipit quis facere dolor ab vitae!
+                </p>
             </div>
             <div class="contact-info column is-4">
-                <div class="address">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <a href="https://goo.gl/maps/jZMhcJPCVn72">
-                        Rua Hermes Fontes, 183 <br>
-                        Salas 03 e 05, Vila Seixas <br>
-                        CEP 14020-090
-                    </a>
+                <div class="columns is-mobile address">
+                    <div class="column is-narrow box-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="column is-narrow box-text">
+                        <a href="https://goo.gl/maps/jZMhcJPCVn72">
+                            Rua Hermes Fontes, 183 <br>
+                            Salas 03 e 05, Vila Seixas <br>
+                            CEP 14020-090
+                        </a>
+                    </div>
                 </div>
-                <div class="email">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mail:contato@gcrlegalizacao.com.br">contato@gcrlegalizacao.com.br</a>
+                <div class="columns is-mobile email">
+                    <div class="column is-narrow box-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="column is-narrow box-text">
+                        <a href="mail:contato@gcrlegalizacao.com.br">contato@gcrlegalizacao.com.br</a>
+                    </div>
                 </div>
-                <div class="tels">
-                    <i class="fas fa-phone"></i>
-                    <a class="tel" href="tel:+551636106093">(16) 3610-6093</a> - <a class="tel" href="tel:+551636257136">(16) 3625-7136</a>
+                <div class="columns is-mobile tels">
+                    <div class="column is-narrow box-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="column is-narrow box-text">
+                        <a class="tel" href="tel:+551636106093">(16) 3610-6093</a> - <a class="tel" href="tel:+551636257136">(16) 3625-7136</a>
+                    </div>
                 </div>
             </div>
             <div class="box-map column is-4">
