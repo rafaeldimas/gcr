@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: 10-Out-2018 às 18:01
--- Versão do servidor: 5.7.19
--- PHP Version: 7.1.9
+-- Host: localhost
+-- Tempo de geração: 14/10/2018 às 22:27
+-- Versão do servidor: 10.1.29-MariaDB-6+b1
+-- Versão do PHP: 7.2.4-1+b1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,35 +17,30 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gcr`
+-- Banco de dados: `gcr`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `gcr_commentmeta`
+-- Estrutura para tabela `gcr_commentmeta`
 --
 
-DROP TABLE IF EXISTS `gcr_commentmeta`;
-CREATE TABLE IF NOT EXISTS `gcr_commentmeta` (
-  `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gcr_commentmeta` (
+  `meta_id` bigint(20) UNSIGNED NOT NULL,
   `comment_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`meta_id`),
-  KEY `comment_id` (`comment_id`),
-  KEY `meta_key` (`meta_key`(191))
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `gcr_comments`
+-- Estrutura para tabela `gcr_comments`
 --
 
-DROP TABLE IF EXISTS `gcr_comments`;
-CREATE TABLE IF NOT EXISTS `gcr_comments` (
-  `comment_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gcr_comments` (
+  `comment_ID` bigint(20) UNSIGNED NOT NULL,
   `comment_post_ID` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `comment_author` tinytext COLLATE utf8mb4_unicode_ci NOT NULL,
   `comment_author_email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -61,17 +54,11 @@ CREATE TABLE IF NOT EXISTS `gcr_comments` (
   `comment_agent` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `comment_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `comment_parent` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  PRIMARY KEY (`comment_ID`),
-  KEY `comment_post_ID` (`comment_post_ID`),
-  KEY `comment_approved_date_gmt` (`comment_approved`,`comment_date_gmt`),
-  KEY `comment_date_gmt` (`comment_date_gmt`),
-  KEY `comment_parent` (`comment_parent`),
-  KEY `comment_author_email` (`comment_author_email`(10))
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Extraindo dados da tabela `gcr_comments`
+-- Fazendo dump de dados para tabela `gcr_comments`
 --
 
 INSERT INTO `gcr_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `comment_author_email`, `comment_author_url`, `comment_author_IP`, `comment_date`, `comment_date_gmt`, `comment_content`, `comment_karma`, `comment_approved`, `comment_agent`, `comment_type`, `comment_parent`, `user_id`) VALUES
@@ -80,12 +67,11 @@ INSERT INTO `gcr_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `gcr_links`
+-- Estrutura para tabela `gcr_links`
 --
 
-DROP TABLE IF EXISTS `gcr_links`;
-CREATE TABLE IF NOT EXISTS `gcr_links` (
-  `link_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gcr_links` (
+  `link_id` bigint(20) UNSIGNED NOT NULL,
   `link_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `link_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `link_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -97,29 +83,24 @@ CREATE TABLE IF NOT EXISTS `gcr_links` (
   `link_updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `link_rel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `link_notes` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `link_rss` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`link_id`),
-  KEY `link_visible` (`link_visible`)
+  `link_rss` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `gcr_options`
+-- Estrutura para tabela `gcr_options`
 --
 
-DROP TABLE IF EXISTS `gcr_options`;
-CREATE TABLE IF NOT EXISTS `gcr_options` (
-  `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gcr_options` (
+  `option_id` bigint(20) UNSIGNED NOT NULL,
   `option_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `option_value` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `autoload` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes',
-  PRIMARY KEY (`option_id`),
-  UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=246 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `autoload` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'yes'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Extraindo dados da tabela `gcr_options`
+-- Fazendo dump de dados para tabela `gcr_options`
 --
 
 INSERT INTO `gcr_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
@@ -155,7 +136,7 @@ INSERT INTO `gcr_options` (`option_id`, `option_name`, `option_value`, `autoload
 (30, 'hack_file', '0', 'yes'),
 (31, 'blog_charset', 'UTF-8', 'yes'),
 (32, 'moderation_keys', '', 'no'),
-(33, 'active_plugins', 'a:0:{}', 'yes'),
+(33, 'active_plugins', 'a:2:{i:0;s:19:\"akismet/akismet.php\";i:1;s:36:\"contact-form-7/wp-contact-form-7.php\";}', 'yes'),
 (34, 'category_base', '', 'yes'),
 (35, 'ping_sites', 'http://rpc.pingomatic.com/', 'yes'),
 (36, 'comment_max_links', '2', 'yes'),
@@ -234,10 +215,7 @@ INSERT INTO `gcr_options` (`option_id`, `option_name`, `option_value`, `autoload
 (109, 'widget_tag_cloud', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
 (110, 'widget_nav_menu', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
 (111, 'widget_custom_html', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
-(112, 'cron', 'a:5:{i:1539195539;a:1:{s:34:\"wp_privacy_delete_old_export_files\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}}i:1539213539;a:3:{s:16:\"wp_version_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:17:\"wp_update_plugins\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:16:\"wp_update_themes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1539213552;a:2:{s:19:\"wp_scheduled_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:25:\"delete_expired_transients\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1539280113;a:1:{s:30:\"wp_scheduled_auto_draft_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}s:7:\"version\";i:2;}', 'yes'),
-(114, '_site_transient_update_core', 'O:8:\"stdClass\":4:{s:7:\"updates\";a:1:{i:0;O:8:\"stdClass\":10:{s:8:\"response\";s:6:\"latest\";s:8:\"download\";s:65:\"https://downloads.wordpress.org/release/pt_BR/wordpress-4.9.8.zip\";s:6:\"locale\";s:5:\"pt_BR\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:65:\"https://downloads.wordpress.org/release/pt_BR/wordpress-4.9.8.zip\";s:10:\"no_content\";b:0;s:11:\"new_bundled\";b:0;s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"4.9.8\";s:7:\"version\";s:5:\"4.9.8\";s:11:\"php_version\";s:5:\"5.2.4\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"4.7\";s:15:\"partial_version\";s:0:\"\";}}s:12:\"last_checked\";i:1539194209;s:15:\"version_checked\";s:5:\"4.9.8\";s:12:\"translations\";a:0:{}}', 'no'),
-(116, '_site_transient_update_plugins', 'O:8:\"stdClass\":5:{s:12:\"last_checked\";i:1539194212;s:7:\"checked\";a:2:{s:19:\"akismet/akismet.php\";s:5:\"4.0.8\";s:9:\"hello.php\";s:3:\"1.7\";}s:8:\"response\";a:0:{}s:12:\"translations\";a:0:{}s:9:\"no_update\";a:2:{s:19:\"akismet/akismet.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:21:\"w.org/plugins/akismet\";s:4:\"slug\";s:7:\"akismet\";s:6:\"plugin\";s:19:\"akismet/akismet.php\";s:11:\"new_version\";s:5:\"4.0.8\";s:3:\"url\";s:38:\"https://wordpress.org/plugins/akismet/\";s:7:\"package\";s:56:\"https://downloads.wordpress.org/plugin/akismet.4.0.8.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:59:\"https://ps.w.org/akismet/assets/icon-256x256.png?rev=969272\";s:2:\"1x\";s:59:\"https://ps.w.org/akismet/assets/icon-128x128.png?rev=969272\";}s:7:\"banners\";a:1:{s:2:\"1x\";s:61:\"https://ps.w.org/akismet/assets/banner-772x250.jpg?rev=479904\";}s:11:\"banners_rtl\";a:0:{}}s:9:\"hello.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:25:\"w.org/plugins/hello-dolly\";s:4:\"slug\";s:11:\"hello-dolly\";s:6:\"plugin\";s:9:\"hello.php\";s:11:\"new_version\";s:3:\"1.6\";s:3:\"url\";s:42:\"https://wordpress.org/plugins/hello-dolly/\";s:7:\"package\";s:58:\"https://downloads.wordpress.org/plugin/hello-dolly.1.6.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:63:\"https://ps.w.org/hello-dolly/assets/icon-256x256.jpg?rev=969907\";s:2:\"1x\";s:63:\"https://ps.w.org/hello-dolly/assets/icon-128x128.jpg?rev=969907\";}s:7:\"banners\";a:1:{s:2:\"1x\";s:65:\"https://ps.w.org/hello-dolly/assets/banner-772x250.png?rev=478342\";}s:11:\"banners_rtl\";a:0:{}}}}', 'no'),
-(119, '_site_transient_update_themes', 'O:8:\"stdClass\":4:{s:12:\"last_checked\";i:1539194212;s:7:\"checked\";a:1:{s:3:\"gcr\";s:5:\"1.0.0\";}s:8:\"response\";a:0:{}s:12:\"translations\";a:0:{}}', 'no'),
+(112, 'cron', 'a:5:{i:1539548339;a:1:{s:34:\"wp_privacy_delete_old_export_files\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}}i:1539559139;a:3:{s:16:\"wp_version_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:17:\"wp_update_plugins\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:16:\"wp_update_themes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1539559152;a:2:{s:19:\"wp_scheduled_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:25:\"delete_expired_transients\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1539625713;a:1:{s:30:\"wp_scheduled_auto_draft_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}s:7:\"version\";i:2;}', 'yes'),
 (125, 'can_compress_scripts', '0', 'no'),
 (128, 'theme_mods_twentyseventeen', 'a:1:{s:16:\"sidebars_widgets\";a:2:{s:4:\"time\";i:1538263161;s:4:\"data\";a:4:{s:19:\"wp_inactive_widgets\";a:0:{}s:9:\"sidebar-1\";a:6:{i:0;s:8:\"search-2\";i:1;s:14:\"recent-posts-2\";i:2;s:17:\"recent-comments-2\";i:3;s:10:\"archives-2\";i:4;s:12:\"categories-2\";i:5;s:6:\"meta-2\";}s:9:\"sidebar-2\";a:0:{}s:9:\"sidebar-3\";a:0:{}}}}', 'yes'),
 (129, 'current_theme', 'GCR', 'yes'),
@@ -246,28 +224,32 @@ INSERT INTO `gcr_options` (`option_id`, `option_name`, `option_value`, `autoload
 (142, 'nav_menu_options', 'a:2:{i:0;b:0;s:8:\"auto_add\";a:0:{}}', 'yes'),
 (157, 'category_children', 'a:0:{}', 'yes'),
 (159, 'sliders_category_children', 'a:0:{}', 'yes'),
-(244, '_site_transient_timeout_theme_roots', '1539196011', 'no'),
-(245, '_site_transient_theme_roots', 'a:1:{s:3:\"gcr\";s:7:\"/themes\";}', 'no');
+(251, '_site_transient_timeout_browser_c725707436ffb8256b2bbf7bc3ade4e9', '1539957604', 'no'),
+(252, '_site_transient_browser_c725707436ffb8256b2bbf7bc3ade4e9', 'a:10:{s:4:\"name\";s:6:\"Chrome\";s:7:\"version\";s:12:\"69.0.3497.81\";s:8:\"platform\";s:5:\"Linux\";s:10:\"update_url\";s:29:\"https://www.google.com/chrome\";s:7:\"img_src\";s:43:\"http://s.w.org/images/browsers/chrome.png?1\";s:11:\"img_src_ssl\";s:44:\"https://s.w.org/images/browsers/chrome.png?1\";s:15:\"current_version\";s:2:\"18\";s:7:\"upgrade\";b:0;s:8:\"insecure\";b:0;s:6:\"mobile\";b:0;}', 'no'),
+(257, 'recently_activated', 'a:0:{}', 'yes'),
+(258, 'widget_akismet_widget', 'a:1:{s:12:\"_multiwidget\";i:1;}', 'yes'),
+(265, 'wpcf7', 'a:2:{s:7:\"version\";s:5:\"5.0.4\";s:13:\"bulk_validate\";a:4:{s:9:\"timestamp\";d:1539348185;s:7:\"version\";s:5:\"5.0.4\";s:11:\"count_valid\";i:1;s:13:\"count_invalid\";i:0;}}', 'yes'),
+(280, '_site_transient_update_core', 'O:8:\"stdClass\":4:{s:7:\"updates\";a:1:{i:0;O:8:\"stdClass\":10:{s:8:\"response\";s:6:\"latest\";s:8:\"download\";s:65:\"https://downloads.wordpress.org/release/pt_BR/wordpress-4.9.8.zip\";s:6:\"locale\";s:5:\"pt_BR\";s:8:\"packages\";O:8:\"stdClass\":5:{s:4:\"full\";s:65:\"https://downloads.wordpress.org/release/pt_BR/wordpress-4.9.8.zip\";s:10:\"no_content\";b:0;s:11:\"new_bundled\";b:0;s:7:\"partial\";b:0;s:8:\"rollback\";b:0;}s:7:\"current\";s:5:\"4.9.8\";s:7:\"version\";s:5:\"4.9.8\";s:11:\"php_version\";s:5:\"5.2.4\";s:13:\"mysql_version\";s:3:\"5.0\";s:11:\"new_bundled\";s:3:\"4.7\";s:15:\"partial_version\";s:0:\"\";}}s:12:\"last_checked\";i:1539535132;s:15:\"version_checked\";s:5:\"4.9.8\";s:12:\"translations\";a:0:{}}', 'no'),
+(281, '_site_transient_update_plugins', 'O:8:\"stdClass\":5:{s:12:\"last_checked\";i:1539535139;s:7:\"checked\";a:2:{s:19:\"akismet/akismet.php\";s:5:\"4.0.8\";s:36:\"contact-form-7/wp-contact-form-7.php\";s:5:\"5.0.4\";}s:8:\"response\";a:0:{}s:12:\"translations\";a:0:{}s:9:\"no_update\";a:2:{s:19:\"akismet/akismet.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:21:\"w.org/plugins/akismet\";s:4:\"slug\";s:7:\"akismet\";s:6:\"plugin\";s:19:\"akismet/akismet.php\";s:11:\"new_version\";s:5:\"4.0.8\";s:3:\"url\";s:38:\"https://wordpress.org/plugins/akismet/\";s:7:\"package\";s:56:\"https://downloads.wordpress.org/plugin/akismet.4.0.8.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:59:\"https://ps.w.org/akismet/assets/icon-256x256.png?rev=969272\";s:2:\"1x\";s:59:\"https://ps.w.org/akismet/assets/icon-128x128.png?rev=969272\";}s:7:\"banners\";a:1:{s:2:\"1x\";s:61:\"https://ps.w.org/akismet/assets/banner-772x250.jpg?rev=479904\";}s:11:\"banners_rtl\";a:0:{}}s:36:\"contact-form-7/wp-contact-form-7.php\";O:8:\"stdClass\":9:{s:2:\"id\";s:28:\"w.org/plugins/contact-form-7\";s:4:\"slug\";s:14:\"contact-form-7\";s:6:\"plugin\";s:36:\"contact-form-7/wp-contact-form-7.php\";s:11:\"new_version\";s:5:\"5.0.4\";s:3:\"url\";s:45:\"https://wordpress.org/plugins/contact-form-7/\";s:7:\"package\";s:63:\"https://downloads.wordpress.org/plugin/contact-form-7.5.0.4.zip\";s:5:\"icons\";a:2:{s:2:\"2x\";s:66:\"https://ps.w.org/contact-form-7/assets/icon-256x256.png?rev=984007\";s:2:\"1x\";s:66:\"https://ps.w.org/contact-form-7/assets/icon-128x128.png?rev=984007\";}s:7:\"banners\";a:2:{s:2:\"2x\";s:69:\"https://ps.w.org/contact-form-7/assets/banner-1544x500.png?rev=860901\";s:2:\"1x\";s:68:\"https://ps.w.org/contact-form-7/assets/banner-772x250.png?rev=880427\";}s:11:\"banners_rtl\";a:0:{}}}}', 'no'),
+(282, '_site_transient_update_themes', 'O:8:\"stdClass\":4:{s:12:\"last_checked\";i:1539535139;s:7:\"checked\";a:1:{s:3:\"gcr\";s:5:\"1.0.0\";}s:8:\"response\";a:0:{}s:12:\"translations\";a:0:{}}', 'no'),
+(285, '_site_transient_timeout_theme_roots', '1539536938', 'no'),
+(286, '_site_transient_theme_roots', 'a:1:{s:3:\"gcr\";s:7:\"/themes\";}', 'no');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `gcr_postmeta`
+-- Estrutura para tabela `gcr_postmeta`
 --
 
-DROP TABLE IF EXISTS `gcr_postmeta`;
-CREATE TABLE IF NOT EXISTS `gcr_postmeta` (
-  `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gcr_postmeta` (
+  `meta_id` bigint(20) UNSIGNED NOT NULL,
   `post_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`meta_id`),
-  KEY `post_id` (`post_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=173 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Extraindo dados da tabela `gcr_postmeta`
+-- Fazendo dump de dados para tabela `gcr_postmeta`
 --
 
 INSERT INTO `gcr_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
@@ -283,11 +265,11 @@ INSERT INTO `gcr_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALU
 (28, 9, '_edit_last', '1'),
 (29, 9, '_edit_lock', '1538329583:1'),
 (30, 11, '_edit_last', '1'),
-(31, 11, '_edit_lock', '1538339612:1'),
+(31, 11, '_edit_lock', '1539483693:1'),
 (32, 13, '_edit_last', '1'),
-(33, 13, '_edit_lock', '1538329729:1'),
+(33, 13, '_edit_lock', '1539483787:1'),
 (34, 15, '_edit_last', '1'),
-(35, 15, '_edit_lock', '1538329736:1'),
+(35, 15, '_edit_lock', '1539547702:1'),
 (36, 17, '_edit_last', '1'),
 (37, 17, '_edit_lock', '1538334380:1'),
 (47, 20, '_menu_item_type', 'post_type'),
@@ -344,8 +326,6 @@ INSERT INTO `gcr_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALU
 (120, 39, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:300;s:6:\"height\";i:200;s:4:\"file\";s:28:\"2018/10/cropped-logo-gcr.jpg\";s:5:\"sizes\";a:2:{s:9:\"thumbnail\";a:4:{s:4:\"file\";s:28:\"cropped-logo-gcr-150x150.jpg\";s:5:\"width\";i:150;s:6:\"height\";i:150;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:6:\"medium\";a:4:{s:4:\"file\";s:28:\"cropped-logo-gcr-300x200.jpg\";s:5:\"width\";i:300;s:6:\"height\";i:200;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
 (121, 37, '_wp_trash_meta_status', 'publish'),
 (122, 37, '_wp_trash_meta_time', '1538667131'),
-(123, 40, '_edit_lock', '1538667228:1'),
-(124, 40, '_customize_restore_dismissed', '1'),
 (125, 41, '_wp_trash_meta_status', 'publish'),
 (126, 41, '_wp_trash_meta_time', '1538667258'),
 (129, 43, '_wp_trash_meta_status', 'publish'),
@@ -361,8 +341,6 @@ INSERT INTO `gcr_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALU
 (142, 48, '_wp_attached_file', '2018/10/slider-3.jpg'),
 (143, 48, '_wp_attachment_metadata', 'a:5:{s:5:\"width\";i:1400;s:6:\"height\";i:600;s:4:\"file\";s:20:\"2018/10/slider-3.jpg\";s:5:\"sizes\";a:3:{s:16:\"slider-fullwidth\";a:4:{s:4:\"file\";s:21:\"slider-3-1167x500.jpg\";s:5:\"width\";i:1167;s:6:\"height\";i:500;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:13:\"slider-squade\";a:4:{s:4:\"file\";s:20:\"slider-3-500x214.jpg\";s:5:\"width\";i:500;s:6:\"height\";i:214;s:9:\"mime-type\";s:10:\"image/jpeg\";}s:15:\"slider-carousel\";a:4:{s:4:\"file\";s:20:\"slider-3-233x100.jpg\";s:5:\"width\";i:233;s:6:\"height\";i:100;s:9:\"mime-type\";s:10:\"image/jpeg\";}}s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
 (144, 47, '_thumbnail_id', '48'),
-(147, 51, '_edit_lock', '1538764662:1'),
-(150, 51, '_customize_restore_dismissed', '1'),
 (153, 54, '_wp_trash_meta_status', 'publish'),
 (154, 54, '_wp_trash_meta_time', '1538764877'),
 (157, 57, '_wp_attached_file', '2018/10/cropped-logo-gcr.png'),
@@ -376,17 +354,38 @@ INSERT INTO `gcr_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALU
 (169, 62, '_wp_trash_meta_status', 'publish'),
 (170, 62, '_wp_trash_meta_time', '1539093181'),
 (171, 63, '_wp_trash_meta_status', 'publish'),
-(172, 63, '_wp_trash_meta_time', '1539093780');
+(172, 63, '_wp_trash_meta_time', '1539093780'),
+(173, 1, '_edit_lock', '1539352959:1'),
+(174, 64, '_form', '<div class=\"field\">\n    <label class=\"label\">Nome</label>\n    <div class=\"control has-icons-left\">\n        [text* your-name class:input placeholder \"Nome\"]\n        <span class=\"icon is-small is-left\">\n            <i class=\"fas fa-user\"></i>\n        </span>\n    </div>\n</div>\n\n<div class=\"field\">\n    <label class=\"label\">Email</label>\n    <div class=\"control has-icons-left\">\n        [email* your-email class:input placeholder akismet:author_email \"Email\"]\n        <span class=\"icon is-small is-left\">\n            <i class=\"fas fa-envelope\"></i>\n        </span>\n    </div>\n</div>\n\n<div class=\"field\">\n    <label class=\"label\">Assunto</label>\n    <div class=\"control\">\n        [text* your-subject class:input placeholder \"Assunto\"]\n    </div>\n</div>\n\n<div class=\"field\">\n    <label class=\"label\">Mensagem</label>\n    <div class=\"control\">\n        [textarea* your-message x5 class:textarea placeholder \"Mensagem\"]\n    </div>\n</div>\n\n<div class=\"field\">\n    <div class=\"control\">\n        [submit class:button class:is-primary \"Enviar\"]\n    </div>\n</div>'),
+(175, 64, '_mail', 'a:9:{s:6:\"active\";b:1;s:7:\"subject\";s:20:\"GCR \"[your-subject]\"\";s:6:\"sender\";s:42:\"[your-name] <wordpress@gcrlegalizacao.abc>\";s:9:\"recipient\";s:27:\"rafael_citotame@hotmail.com\";s:4:\"body\";s:167:\"From: [your-name] <[your-email]>\nSubject: [your-subject]\n\nMessage Body:\n[your-message]\n\n-- \nThis e-mail was sent from a contact form on GCR (http://gcrlegalizacao.abc)\";s:18:\"additional_headers\";s:22:\"Reply-To: [your-email]\";s:11:\"attachments\";s:0:\"\";s:8:\"use_html\";b:0;s:13:\"exclude_blank\";b:0;}'),
+(176, 64, '_mail_2', 'a:9:{s:6:\"active\";b:0;s:7:\"subject\";s:20:\"GCR \"[your-subject]\"\";s:6:\"sender\";s:34:\"GCR <wordpress@gcrlegalizacao.abc>\";s:9:\"recipient\";s:12:\"[your-email]\";s:4:\"body\";s:109:\"Message Body:\n[your-message]\n\n-- \nThis e-mail was sent from a contact form on GCR (http://gcrlegalizacao.abc)\";s:18:\"additional_headers\";s:37:\"Reply-To: rafael_citotame@hotmail.com\";s:11:\"attachments\";s:0:\"\";s:8:\"use_html\";b:0;s:13:\"exclude_blank\";b:0;}'),
+(177, 64, '_messages', 'a:23:{s:12:\"mail_sent_ok\";s:45:\"Thank you for your message. It has been sent.\";s:12:\"mail_sent_ng\";s:71:\"There was an error trying to send your message. Please try again later.\";s:16:\"validation_error\";s:61:\"One or more fields have an error. Please check and try again.\";s:4:\"spam\";s:71:\"There was an error trying to send your message. Please try again later.\";s:12:\"accept_terms\";s:69:\"You must accept the terms and conditions before sending your message.\";s:16:\"invalid_required\";s:22:\"The field is required.\";s:16:\"invalid_too_long\";s:22:\"The field is too long.\";s:17:\"invalid_too_short\";s:23:\"The field is too short.\";s:12:\"invalid_date\";s:29:\"The date format is incorrect.\";s:14:\"date_too_early\";s:44:\"The date is before the earliest one allowed.\";s:13:\"date_too_late\";s:41:\"The date is after the latest one allowed.\";s:13:\"upload_failed\";s:46:\"There was an unknown error uploading the file.\";s:24:\"upload_file_type_invalid\";s:49:\"You are not allowed to upload files of this type.\";s:21:\"upload_file_too_large\";s:20:\"The file is too big.\";s:23:\"upload_failed_php_error\";s:38:\"There was an error uploading the file.\";s:14:\"invalid_number\";s:29:\"The number format is invalid.\";s:16:\"number_too_small\";s:47:\"The number is smaller than the minimum allowed.\";s:16:\"number_too_large\";s:46:\"The number is larger than the maximum allowed.\";s:23:\"quiz_answer_not_correct\";s:36:\"The answer to the quiz is incorrect.\";s:17:\"captcha_not_match\";s:31:\"Your entered code is incorrect.\";s:13:\"invalid_email\";s:38:\"The e-mail address entered is invalid.\";s:11:\"invalid_url\";s:19:\"The URL is invalid.\";s:11:\"invalid_tel\";s:32:\"The telephone number is invalid.\";}'),
+(178, 64, '_additional_settings', ''),
+(179, 64, '_locale', 'pt_BR'),
+(180, 13, '_wp_page_template', 'templates/service.php'),
+(181, 65, '_edit_last', '1'),
+(182, 65, '_edit_lock', '1539542392:1'),
+(183, 66, '_edit_last', '1'),
+(184, 66, '_edit_lock', '1539540614:1'),
+(185, 67, '_wp_attached_file', '2018/10/5-1600x500.jpg'),
+(186, 67, '_wp_attachment_metadata', 'a:4:{s:5:\"width\";i:1600;s:6:\"height\";i:500;s:4:\"file\";s:22:\"2018/10/5-1600x500.jpg\";s:10:\"image_meta\";a:12:{s:8:\"aperture\";s:1:\"0\";s:6:\"credit\";s:0:\"\";s:6:\"camera\";s:0:\"\";s:7:\"caption\";s:0:\"\";s:17:\"created_timestamp\";s:1:\"0\";s:9:\"copyright\";s:0:\"\";s:12:\"focal_length\";s:1:\"0\";s:3:\"iso\";s:1:\"0\";s:13:\"shutter_speed\";s:1:\"0\";s:5:\"title\";s:0:\"\";s:11:\"orientation\";s:1:\"0\";s:8:\"keywords\";a:0:{}}}'),
+(187, 66, '_thumbnail_id', '67'),
+(188, 15, '_wp_page_template', 'templates/contact.php'),
+(189, 68, '_form', '<div class=\"field\">\n    <label class=\"label\">Nome</label>\n    <div class=\"control has-icons-left\">\n        [text* your-name class:input placeholder \"Nome\"]\n        <span class=\"icon is-small is-left\">\n            <i class=\"fas fa-user\"></i>\n        </span>\n    </div>\n</div>\n\n<div class=\"field\">\n    <label class=\"label\">Email</label>\n    <div class=\"control has-icons-left\">\n        [email* your-email class:input placeholder akismet:author_email \"Email\"]\n        <span class=\"icon is-small is-left\">\n            <i class=\"fas fa-envelope\"></i>\n        </span>\n    </div>\n</div>\n\n<div class=\"field\">\n    <label class=\"label\">Assunto</label>\n    <div class=\"control\">\n        [text* your-subject class:input placeholder \"Assunto\"]\n    </div>\n</div>\n\n<div class=\"field\">\n    <label class=\"label\">Mensagem</label>\n    <div class=\"control\">\n        [textarea* your-message x5 class:textarea placeholder \"Mensagem\"]\n    </div>\n</div>\n\n<div class=\"field\">\n    <div class=\"control\">\n        [submit class:button class:is-primary \"Enviar\"]\n    </div>\n</div>'),
+(190, 68, '_mail', 'a:9:{s:6:\"active\";b:1;s:7:\"subject\";s:20:\"GCR \"[your-subject]\"\";s:6:\"sender\";s:42:\"[your-name] <wordpress@gcrlegalizacao.abc>\";s:9:\"recipient\";s:27:\"rafael_citotame@hotmail.com\";s:4:\"body\";s:167:\"From: [your-name] <[your-email]>\nSubject: [your-subject]\n\nMessage Body:\n[your-message]\n\n-- \nThis e-mail was sent from a contact form on GCR (http://gcrlegalizacao.abc)\";s:18:\"additional_headers\";s:22:\"Reply-To: [your-email]\";s:11:\"attachments\";s:0:\"\";s:8:\"use_html\";b:0;s:13:\"exclude_blank\";b:0;}'),
+(191, 68, '_mail_2', 'a:9:{s:6:\"active\";b:0;s:7:\"subject\";s:20:\"GCR \"[your-subject]\"\";s:6:\"sender\";s:34:\"GCR <wordpress@gcrlegalizacao.abc>\";s:9:\"recipient\";s:12:\"[your-email]\";s:4:\"body\";s:109:\"Message Body:\n[your-message]\n\n-- \nThis e-mail was sent from a contact form on GCR (http://gcrlegalizacao.abc)\";s:18:\"additional_headers\";s:37:\"Reply-To: rafael_citotame@hotmail.com\";s:11:\"attachments\";s:0:\"\";s:8:\"use_html\";b:0;s:13:\"exclude_blank\";b:0;}'),
+(192, 68, '_messages', 'a:23:{s:12:\"mail_sent_ok\";s:45:\"Thank you for your message. It has been sent.\";s:12:\"mail_sent_ng\";s:71:\"There was an error trying to send your message. Please try again later.\";s:16:\"validation_error\";s:61:\"One or more fields have an error. Please check and try again.\";s:4:\"spam\";s:71:\"There was an error trying to send your message. Please try again later.\";s:12:\"accept_terms\";s:69:\"You must accept the terms and conditions before sending your message.\";s:16:\"invalid_required\";s:22:\"The field is required.\";s:16:\"invalid_too_long\";s:22:\"The field is too long.\";s:17:\"invalid_too_short\";s:23:\"The field is too short.\";s:12:\"invalid_date\";s:29:\"The date format is incorrect.\";s:14:\"date_too_early\";s:44:\"The date is before the earliest one allowed.\";s:13:\"date_too_late\";s:41:\"The date is after the latest one allowed.\";s:13:\"upload_failed\";s:46:\"There was an unknown error uploading the file.\";s:24:\"upload_file_type_invalid\";s:49:\"You are not allowed to upload files of this type.\";s:21:\"upload_file_too_large\";s:20:\"The file is too big.\";s:23:\"upload_failed_php_error\";s:38:\"There was an error uploading the file.\";s:14:\"invalid_number\";s:29:\"The number format is invalid.\";s:16:\"number_too_small\";s:47:\"The number is smaller than the minimum allowed.\";s:16:\"number_too_large\";s:46:\"The number is larger than the maximum allowed.\";s:23:\"quiz_answer_not_correct\";s:36:\"The answer to the quiz is incorrect.\";s:17:\"captcha_not_match\";s:31:\"Your entered code is incorrect.\";s:13:\"invalid_email\";s:38:\"The e-mail address entered is invalid.\";s:11:\"invalid_url\";s:19:\"The URL is invalid.\";s:11:\"invalid_tel\";s:32:\"The telephone number is invalid.\";}'),
+(193, 68, '_additional_settings', ''),
+(194, 68, '_locale', 'pt_BR');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `gcr_posts`
+-- Estrutura para tabela `gcr_posts`
 --
 
-DROP TABLE IF EXISTS `gcr_posts`;
-CREATE TABLE IF NOT EXISTS `gcr_posts` (
-  `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gcr_posts` (
+  `ID` bigint(20) UNSIGNED NOT NULL,
   `post_author` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `post_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -408,16 +407,11 @@ CREATE TABLE IF NOT EXISTS `gcr_posts` (
   `menu_order` int(11) NOT NULL DEFAULT '0',
   `post_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'post',
   `post_mime_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `comment_count` bigint(20) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`ID`),
-  KEY `post_name` (`post_name`(191)),
-  KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
-  KEY `post_parent` (`post_parent`),
-  KEY `post_author` (`post_author`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `comment_count` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Extraindo dados da tabela `gcr_posts`
+-- Fazendo dump de dados para tabela `gcr_posts`
 --
 
 INSERT INTO `gcr_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
@@ -427,9 +421,9 @@ INSERT INTO `gcr_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `pos
 (10, 1, '2018-09-30 14:48:46', '2018-09-30 17:48:46', '', 'Pagina Inicial', '', 'inherit', 'closed', 'closed', '', '9-revision-v1', '', '', '2018-09-30 14:48:46', '2018-09-30 17:48:46', '', 9, 'http://gcrlegalizacao.abc/9-revision-v1/', 0, 'revision', '', 0),
 (11, 1, '2018-09-30 14:51:02', '2018-09-30 17:51:02', '', 'Quem Somos', '', 'publish', 'closed', 'closed', '', 'quem-somos', '', '', '2018-09-30 16:08:55', '2018-09-30 19:08:55', '', 0, 'http://gcrlegalizacao.abc/?page_id=11', 0, 'page', '', 0),
 (12, 1, '2018-09-30 14:51:02', '2018-09-30 17:51:02', '', 'Quem Somos', '', 'inherit', 'closed', 'closed', '', '11-revision-v1', '', '', '2018-09-30 14:51:02', '2018-09-30 17:51:02', '', 11, 'http://gcrlegalizacao.abc/11-revision-v1/', 0, 'revision', '', 0),
-(13, 1, '2018-09-30 14:51:12', '2018-09-30 17:51:12', '', 'Serviços', '', 'publish', 'closed', 'closed', '', 'servicos', '', '', '2018-09-30 14:51:12', '2018-09-30 17:51:12', '', 0, 'http://gcrlegalizacao.abc/?page_id=13', 0, 'page', '', 0),
+(13, 1, '2018-09-30 14:51:12', '2018-09-30 17:51:12', '', 'Serviços', '', 'publish', 'closed', 'closed', '', 'servicos', '', '', '2018-10-13 23:25:00', '2018-10-14 02:25:00', '', 0, 'http://gcrlegalizacao.abc/?page_id=13', 0, 'page', '', 0),
 (14, 1, '2018-09-30 14:51:12', '2018-09-30 17:51:12', '', 'Serviços', '', 'inherit', 'closed', 'closed', '', '13-revision-v1', '', '', '2018-09-30 14:51:12', '2018-09-30 17:51:12', '', 13, 'http://gcrlegalizacao.abc/13-revision-v1/', 0, 'revision', '', 0),
-(15, 1, '2018-09-30 14:51:19', '2018-09-30 17:51:19', '', 'Contato', '', 'publish', 'closed', 'closed', '', 'contato', '', '', '2018-09-30 14:51:19', '2018-09-30 17:51:19', '', 0, 'http://gcrlegalizacao.abc/?page_id=15', 0, 'page', '', 0),
+(15, 1, '2018-09-30 14:51:19', '2018-09-30 17:51:19', '', 'Contato', '', 'publish', 'closed', 'closed', '', 'contato', '', '', '2018-10-14 16:37:22', '2018-10-14 19:37:22', '', 0, 'http://gcrlegalizacao.abc/?page_id=15', 0, 'page', '', 0),
 (16, 1, '2018-09-30 14:51:19', '2018-09-30 17:51:19', '', 'Contato', '', 'inherit', 'closed', 'closed', '', '15-revision-v1', '', '', '2018-09-30 14:51:19', '2018-09-30 17:51:19', '', 15, 'http://gcrlegalizacao.abc/15-revision-v1/', 0, 'revision', '', 0),
 (17, 1, '2018-09-30 14:51:27', '2018-09-30 17:51:27', '', 'Blog', '', 'publish', 'closed', 'closed', '', 'blog', '', '', '2018-09-30 14:51:27', '2018-09-30 17:51:27', '', 0, 'http://gcrlegalizacao.abc/?page_id=17', 0, 'page', '', 0),
 (18, 1, '2018-09-30 14:51:27', '2018-09-30 17:51:27', '', 'Blog', '', 'inherit', 'closed', 'closed', '', '17-revision-v1', '', '', '2018-09-30 14:51:27', '2018-09-30 17:51:27', '', 17, 'http://gcrlegalizacao.abc/17-revision-v1/', 0, 'revision', '', 0),
@@ -444,59 +438,53 @@ INSERT INTO `gcr_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `pos
 (36, 1, '2018-10-04 12:30:30', '2018-10-04 15:30:30', '{\n    \"gcr::custom_logo\": {\n        \"value\": 35,\n        \"type\": \"theme_mod\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-04 15:30:30\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', '3ea33557-65d0-4efd-aeb6-e670867623c7', '', '', '2018-10-04 12:30:30', '2018-10-04 15:30:30', '', 0, 'http://gcrlegalizacao.abc/3ea33557-65d0-4efd-aeb6-e670867623c7/', 0, 'customize_changeset', '', 0),
 (37, 1, '2018-10-04 12:32:11', '2018-10-04 15:32:11', '{\n    \"gcr::custom_logo\": {\n        \"value\": 39,\n        \"type\": \"theme_mod\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-04 15:32:08\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', '8853b72a-eb8a-4589-bd79-7d432774a968', '', '', '2018-10-04 12:32:11', '2018-10-04 15:32:11', '', 0, 'http://gcrlegalizacao.abc/?p=37', 0, 'customize_changeset', '', 0),
 (39, 1, '2018-10-04 12:32:01', '2018-10-04 15:32:01', 'http://gcrlegalizacao.abc/wp-content/uploads/2018/10/cropped-logo-gcr.jpg', 'cropped-logo-gcr.jpg', '', 'inherit', 'open', 'closed', '', 'cropped-logo-gcr-jpg', '', '', '2018-10-04 12:32:01', '2018-10-04 15:32:01', '', 0, 'http://gcrlegalizacao.abc/wp-content/uploads/2018/10/cropped-logo-gcr.jpg', 0, 'attachment', 'image/jpeg', 0),
-(40, 1, '2018-10-04 12:33:48', '0000-00-00 00:00:00', '{\n    \"gcr::custom_logo\": {\n        \"value\": \"\",\n        \"type\": \"theme_mod\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-04 15:33:48\"\n    }\n}', '', '', 'auto-draft', 'closed', 'closed', '', 'd8f4598e-a683-43ed-82ff-c5e57a5ec1b5', '', '', '2018-10-04 12:33:48', '0000-00-00 00:00:00', '', 0, 'http://gcrlegalizacao.abc/?p=40', 0, 'customize_changeset', '', 0),
 (41, 1, '2018-10-04 12:34:18', '2018-10-04 15:34:18', '{\n    \"gcr::custom_logo\": {\n        \"value\": \"\",\n        \"type\": \"theme_mod\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-04 15:34:18\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', 'bd68f005-2bb6-44f2-9d41-377995efc9cd', '', '', '2018-10-04 12:34:18', '2018-10-04 15:34:18', '', 0, 'http://gcrlegalizacao.abc/bd68f005-2bb6-44f2-9d41-377995efc9cd/', 0, 'customize_changeset', '', 0),
 (43, 1, '2018-10-04 12:34:52', '2018-10-04 15:34:52', '{\n    \"gcr::custom_logo\": {\n        \"value\": 42,\n        \"type\": \"theme_mod\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-04 15:34:52\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', 'd36f7e2f-7f03-43a9-86de-e7fb0473300c', '', '', '2018-10-04 12:34:52', '2018-10-04 15:34:52', '', 0, 'http://gcrlegalizacao.abc/d36f7e2f-7f03-43a9-86de-e7fb0473300c/', 0, 'customize_changeset', '', 0),
 (44, 1, '2018-10-05 14:55:47', '2018-10-05 17:55:47', '', 'slider-1', '', 'inherit', 'open', 'closed', '', 'slider-1', '', '', '2018-10-05 14:55:47', '2018-10-05 17:55:47', '', 30, 'http://gcrlegalizacao.abc/wp-content/uploads/2018/10/slider-1.jpg', 0, 'attachment', 'image/jpeg', 0),
 (46, 1, '2018-10-05 15:02:38', '2018-10-05 18:02:38', '', 'slider-2', '', 'inherit', 'open', 'closed', '', 'slider-2', '', '', '2018-10-05 15:02:38', '2018-10-05 18:02:38', '', 25, 'http://gcrlegalizacao.abc/wp-content/uploads/2018/09/slider-2.jpg', 0, 'attachment', 'image/jpeg', 0),
 (47, 1, '2018-10-05 15:11:55', '2018-10-05 18:11:55', 'three', 'three', '', 'publish', 'closed', 'closed', '', 'three', '', '', '2018-10-05 15:11:55', '2018-10-05 18:11:55', '', 0, 'http://gcrlegalizacao.abc/?post_type=sliders&#038;p=47', 0, 'sliders', '', 0),
 (48, 1, '2018-10-05 15:10:39', '2018-10-05 18:10:39', '', 'slider-3', '', 'inherit', 'open', 'closed', '', 'slider-3', '', '', '2018-10-05 15:10:39', '2018-10-05 18:10:39', '', 47, 'http://gcrlegalizacao.abc/wp-content/uploads/2018/10/slider-3.jpg', 0, 'attachment', 'image/jpeg', 0),
-(49, 1, '2018-10-05 15:11:16', '0000-00-00 00:00:00', '', 'Rascunho automático', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2018-10-05 15:11:16', '0000-00-00 00:00:00', '', 0, 'http://gcrlegalizacao.abc/?post_type=sliders&p=49', 0, 'sliders', '', 0),
-(51, 1, '2018-10-05 15:35:51', '0000-00-00 00:00:00', '{\n    \"gcr::custom_logo\": {\n        \"value\": \"\",\n        \"type\": \"theme_mod\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-05 18:35:51\"\n    }\n}', '', '', 'auto-draft', 'closed', 'closed', '', '649338c7-ec04-44d0-8079-bf3b9ea2bc5f', '', '', '2018-10-05 15:35:51', '0000-00-00 00:00:00', '', 0, 'http://gcrlegalizacao.abc/?p=51', 0, 'customize_changeset', '', 0),
 (54, 1, '2018-10-05 15:41:17', '2018-10-05 18:41:17', '{\n    \"gcr::custom_logo\": {\n        \"value\": 53,\n        \"type\": \"theme_mod\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-05 18:41:17\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', '1bc90d70-dcc3-4f65-a198-826f4c7872eb', '', '', '2018-10-05 15:41:17', '2018-10-05 18:41:17', '', 0, 'http://gcrlegalizacao.abc/1bc90d70-dcc3-4f65-a198-826f4c7872eb/', 0, 'customize_changeset', '', 0),
 (55, 1, '2018-10-08 10:15:43', '0000-00-00 00:00:00', '', 'Rascunho automático', '', 'auto-draft', 'open', 'open', '', '', '', '', '2018-10-08 10:15:43', '0000-00-00 00:00:00', '', 0, 'http://gcrlegalizacao.abc/?p=55', 0, 'post', '', 0),
 (57, 1, '2018-10-08 17:54:29', '2018-10-08 20:54:29', 'http://gcrlegalizacao.abc/wp-content/uploads/2018/10/cropped-logo-gcr.png', 'cropped-logo-gcr.png', '', 'inherit', 'open', 'closed', '', 'cropped-logo-gcr-png', '', '', '2018-10-08 17:54:29', '2018-10-08 20:54:29', '', 0, 'http://gcrlegalizacao.abc/wp-content/uploads/2018/10/cropped-logo-gcr.png', 0, 'attachment', 'image/png', 0),
 (58, 1, '2018-10-08 17:54:35', '2018-10-08 20:54:35', '{\n    \"gcr::custom_logo\": {\n        \"value\": 57,\n        \"type\": \"theme_mod\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-08 20:54:35\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', 'f5151daf-8978-49c1-af5e-c00758d63055', '', '', '2018-10-08 17:54:35', '2018-10-08 20:54:35', '', 0, 'http://gcrlegalizacao.abc/f5151daf-8978-49c1-af5e-c00758d63055/', 0, 'customize_changeset', '', 0),
 (59, 1, '2018-10-08 17:56:05', '2018-10-08 20:56:05', '{\n    \"gcr::custom_logo\": {\n        \"value\": 60,\n        \"type\": \"theme_mod\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-08 20:56:05\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', '5123b329-c075-40b8-9d2b-0c8aec5c3fe3', '', '', '2018-10-08 17:56:05', '2018-10-08 20:56:05', '', 0, 'http://gcrlegalizacao.abc/?p=59', 0, 'customize_changeset', '', 0),
 (62, 1, '2018-10-09 10:53:00', '2018-10-09 13:53:00', '{\n    \"gcr::custom_logo\": {\n        \"value\": 61,\n        \"type\": \"theme_mod\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-09 13:53:00\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', 'c50fb240-1f96-414a-85cc-8bbaee23f084', '', '', '2018-10-09 10:53:00', '2018-10-09 13:53:00', '', 0, 'http://gcrlegalizacao.abc/c50fb240-1f96-414a-85cc-8bbaee23f084/', 0, 'customize_changeset', '', 0),
-(63, 1, '2018-10-09 11:02:59', '2018-10-09 14:02:59', '{\n    \"blogdescription\": {\n        \"value\": \"\",\n        \"type\": \"option\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-09 14:02:59\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', '9848c430-00e3-46d5-bf39-3af3e4bed2d1', '', '', '2018-10-09 11:02:59', '2018-10-09 14:02:59', '', 0, 'http://gcrlegalizacao.abc/9848c430-00e3-46d5-bf39-3af3e4bed2d1/', 0, 'customize_changeset', '', 0);
+(63, 1, '2018-10-09 11:02:59', '2018-10-09 14:02:59', '{\n    \"blogdescription\": {\n        \"value\": \"\",\n        \"type\": \"option\",\n        \"user_id\": 1,\n        \"date_modified_gmt\": \"2018-10-09 14:02:59\"\n    }\n}', '', '', 'trash', 'closed', 'closed', '', '9848c430-00e3-46d5-bf39-3af3e4bed2d1', '', '', '2018-10-09 11:02:59', '2018-10-09 14:02:59', '', 0, 'http://gcrlegalizacao.abc/9848c430-00e3-46d5-bf39-3af3e4bed2d1/', 0, 'customize_changeset', '', 0),
+(64, 1, '2018-10-12 12:43:04', '2018-10-12 15:43:04', '<div class=\"field\">\r\n    <label class=\"label\">Nome</label>\r\n    <div class=\"control has-icons-left\">\r\n        [text* your-name class:input placeholder \"Nome\"]\r\n        <span class=\"icon is-small is-left\">\r\n            <i class=\"fas fa-user\"></i>\r\n        </span>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"field\">\r\n    <label class=\"label\">Email</label>\r\n    <div class=\"control has-icons-left\">\r\n        [email* your-email class:input placeholder akismet:author_email \"Email\"]\r\n        <span class=\"icon is-small is-left\">\r\n            <i class=\"fas fa-envelope\"></i>\r\n        </span>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"field\">\r\n    <label class=\"label\">Assunto</label>\r\n    <div class=\"control\">\r\n        [text* your-subject class:input placeholder \"Assunto\"]\r\n    </div>\r\n</div>\r\n\r\n<div class=\"field\">\r\n    <label class=\"label\">Mensagem</label>\r\n    <div class=\"control\">\r\n        [textarea* your-message x5 class:textarea placeholder \"Mensagem\"]\r\n    </div>\r\n</div>\r\n\r\n<div class=\"field\">\r\n    <div class=\"control\">\r\n        [submit class:button class:is-primary \"Enviar\"]\r\n    </div>\r\n</div>\n1\nGCR \"[your-subject]\"\n[your-name] <wordpress@gcrlegalizacao.abc>\nrafael_citotame@hotmail.com\nFrom: [your-name] <[your-email]>\r\nSubject: [your-subject]\r\n\r\nMessage Body:\r\n[your-message]\r\n\r\n-- \r\nThis e-mail was sent from a contact form on GCR (http://gcrlegalizacao.abc)\nReply-To: [your-email]\n\n\n\n\nGCR \"[your-subject]\"\nGCR <wordpress@gcrlegalizacao.abc>\n[your-email]\nMessage Body:\r\n[your-message]\r\n\r\n-- \r\nThis e-mail was sent from a contact form on GCR (http://gcrlegalizacao.abc)\nReply-To: rafael_citotame@hotmail.com\n\n\n\nThank you for your message. It has been sent.\nThere was an error trying to send your message. Please try again later.\nOne or more fields have an error. Please check and try again.\nThere was an error trying to send your message. Please try again later.\nYou must accept the terms and conditions before sending your message.\nThe field is required.\nThe field is too long.\nThe field is too short.\nThe date format is incorrect.\nThe date is before the earliest one allowed.\nThe date is after the latest one allowed.\nThere was an unknown error uploading the file.\nYou are not allowed to upload files of this type.\nThe file is too big.\nThere was an error uploading the file.\nThe number format is invalid.\nThe number is smaller than the minimum allowed.\nThe number is larger than the maximum allowed.\nThe answer to the quiz is incorrect.\nYour entered code is incorrect.\nThe e-mail address entered is invalid.\nThe URL is invalid.\nThe telephone number is invalid.', 'Contact form 1', '', 'publish', 'closed', 'closed', '', 'contact-form-1', '', '', '2018-10-12 13:23:18', '2018-10-12 16:23:18', '', 0, 'http://gcrlegalizacao.abc/?post_type=wpcf7_contact_form&#038;p=64', 0, 'wpcf7_contact_form', '', 0),
+(65, 1, '2018-10-13 23:47:07', '2018-10-14 02:47:07', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis dui ante. Nullam et ipsum tincidunt, consequat quam et, interdum massa. Mauris vehicula efficitur elementum. Morbi vestibulum pharetra libero quis euismod. Duis commodo est quis tortor ultricies, ut euismod turpis malesuada. Donec vel erat pellentesque, faucibus libero dapibus, euismod lectus. Sed dictum nec lorem vitae pulvinar. Phasellus cursus, mauris ac pharetra lacinia, ipsum tellus sollicitudin nibh, pellentesque sodales eros ipsum et tellus.\r\n\r\nVestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi tincidunt massa justo, sed molestie tortor scelerisque eget. Vestibulum tellus nunc, pharetra et dapibus aliquet, auctor at enim. Morbi suscipit purus quis elit vehicula tempus. Vivamus eu tortor aliquet, bibendum est id, egestas elit. Duis facilisis tortor eu iaculis facilisis. Quisque mollis libero non odio condimentum mollis. Etiam et libero euismod, placerat ligula vitae, placerat odio. Nunc gravida odio et dui dignissim fermentum. Donec id nisl eget nisi consequat tristique. Donec aliquam nisl non lorem lacinia luctus. Praesent cursus ante ac libero consequat, nec varius elit mattis. Pellentesque nisl neque, ornare in egestas sit amet, mollis eu odio. Aenean volutpat tortor non bibendum tincidunt. Suspendisse ac massa quis nunc pharetra pulvinar a vitae risus.', 'Teste de serviço', '', 'publish', 'closed', 'closed', '', 'teste-de-servico', '', '', '2018-10-14 15:20:22', '2018-10-14 18:20:22', '', 0, 'http://gcrlegalizacao.abc/?post_type=services&#038;p=65', 0, 'services', '', 0),
+(66, 1, '2018-10-14 14:06:38', '2018-10-14 17:06:38', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis dui ante. Nullam et ipsum tincidunt, consequat quam et, interdum massa. Mauris vehicula efficitur elementum. Morbi vestibulum pharetra libero quis euismod. Duis commodo est quis tortor ultricies, ut euismod turpis malesuada. Donec vel erat pellentesque, faucibus libero dapibus, euismod lectus. Sed dictum nec lorem vitae pulvinar. Phasellus cursus, mauris ac pharetra lacinia, ipsum tellus sollicitudin nibh, pellentesque sodales eros ipsum et tellus.\r\n\r\nVestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi tincidunt massa justo, sed molestie tortor scelerisque eget. Vestibulum tellus nunc, pharetra et dapibus aliquet, auctor at enim. Morbi suscipit purus quis elit vehicula tempus. Vivamus eu tortor aliquet, bibendum est id, egestas elit. Duis facilisis tortor eu iaculis facilisis. Quisque mollis libero non odio condimentum mollis. Etiam et libero euismod, placerat ligula vitae, placerat odio. Nunc gravida odio et dui dignissim fermentum. Donec id nisl eget nisi consequat tristique. Donec aliquam nisl non lorem lacinia luctus. Praesent cursus ante ac libero consequat, nec varius elit mattis. Pellentesque nisl neque, ornare in egestas sit amet, mollis eu odio. Aenean volutpat tortor non bibendum tincidunt. Suspendisse ac massa quis nunc pharetra pulvinar a vitae risus.', 'Teste Serviço 2', '', 'publish', 'closed', 'closed', '', 'teste-servico-2', '', '', '2018-10-14 14:47:14', '2018-10-14 17:47:14', '', 0, 'http://gcrlegalizacao.abc/?post_type=services&#038;p=66', 0, 'services', '', 0),
+(67, 1, '2018-10-14 14:47:09', '2018-10-14 17:47:09', '', '5-1600x500', '', 'inherit', 'open', 'closed', '', '5-1600x500', '', '', '2018-10-14 14:47:09', '2018-10-14 17:47:09', '', 66, 'http://gcrlegalizacao.abc/wp-content/uploads/2018/10/5-1600x500.jpg', 0, 'attachment', 'image/jpeg', 0),
+(68, 1, '2018-10-14 16:41:27', '2018-10-14 19:41:27', '<div class=\"field\">\r\n    <label class=\"label\">Nome</label>\r\n    <div class=\"control has-icons-left\">\r\n        [text* your-name class:input placeholder \"Nome\"]\r\n        <span class=\"icon is-small is-left\">\r\n            <i class=\"fas fa-user\"></i>\r\n        </span>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"field\">\r\n    <label class=\"label\">Email</label>\r\n    <div class=\"control has-icons-left\">\r\n        [email* your-email class:input placeholder akismet:author_email \"Email\"]\r\n        <span class=\"icon is-small is-left\">\r\n            <i class=\"fas fa-envelope\"></i>\r\n        </span>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"field\">\r\n    <label class=\"label\">Assunto</label>\r\n    <div class=\"control\">\r\n        [text* your-subject class:input placeholder \"Assunto\"]\r\n    </div>\r\n</div>\r\n\r\n<div class=\"field\">\r\n    <label class=\"label\">Mensagem</label>\r\n    <div class=\"control\">\r\n        [textarea* your-message x5 class:textarea placeholder \"Mensagem\"]\r\n    </div>\r\n</div>\r\n\r\n<div class=\"field\">\r\n    <div class=\"control\">\r\n        [submit class:button class:is-primary \"Enviar\"]\r\n    </div>\r\n</div>\n1\nGCR \"[your-subject]\"\n[your-name] <wordpress@gcrlegalizacao.abc>\nrafael_citotame@hotmail.com\nFrom: [your-name] <[your-email]>\r\nSubject: [your-subject]\r\n\r\nMessage Body:\r\n[your-message]\r\n\r\n-- \r\nThis e-mail was sent from a contact form on GCR (http://gcrlegalizacao.abc)\nReply-To: [your-email]\n\n\n\n\nGCR \"[your-subject]\"\nGCR <wordpress@gcrlegalizacao.abc>\n[your-email]\nMessage Body:\r\n[your-message]\r\n\r\n-- \r\nThis e-mail was sent from a contact form on GCR (http://gcrlegalizacao.abc)\nReply-To: rafael_citotame@hotmail.com\n\n\n\nThank you for your message. It has been sent.\nThere was an error trying to send your message. Please try again later.\nOne or more fields have an error. Please check and try again.\nThere was an error trying to send your message. Please try again later.\nYou must accept the terms and conditions before sending your message.\nThe field is required.\nThe field is too long.\nThe field is too short.\nThe date format is incorrect.\nThe date is before the earliest one allowed.\nThe date is after the latest one allowed.\nThere was an unknown error uploading the file.\nYou are not allowed to upload files of this type.\nThe file is too big.\nThere was an error uploading the file.\nThe number format is invalid.\nThe number is smaller than the minimum allowed.\nThe number is larger than the maximum allowed.\nThe answer to the quiz is incorrect.\nYour entered code is incorrect.\nThe e-mail address entered is invalid.\nThe URL is invalid.\nThe telephone number is invalid.', 'Contact Page home', '', 'publish', 'closed', 'closed', '', 'contact-form-1_copy', '', '', '2018-10-14 16:41:52', '2018-10-14 19:41:52', '', 0, 'http://gcrlegalizacao.abc/?post_type=wpcf7_contact_form&#038;p=68', 0, 'wpcf7_contact_form', '', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `gcr_termmeta`
+-- Estrutura para tabela `gcr_termmeta`
 --
 
-DROP TABLE IF EXISTS `gcr_termmeta`;
-CREATE TABLE IF NOT EXISTS `gcr_termmeta` (
-  `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gcr_termmeta` (
+  `meta_id` bigint(20) UNSIGNED NOT NULL,
   `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`meta_id`),
-  KEY `term_id` (`term_id`),
-  KEY `meta_key` (`meta_key`(191))
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `gcr_terms`
+-- Estrutura para tabela `gcr_terms`
 --
 
-DROP TABLE IF EXISTS `gcr_terms`;
-CREATE TABLE IF NOT EXISTS `gcr_terms` (
-  `term_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gcr_terms` (
+  `term_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `slug` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `term_group` bigint(10) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`term_id`),
-  KEY `slug` (`slug`(191)),
-  KEY `name` (`name`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `term_group` bigint(10) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Extraindo dados da tabela `gcr_terms`
+-- Fazendo dump de dados para tabela `gcr_terms`
 --
 
 INSERT INTO `gcr_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
@@ -507,20 +495,17 @@ INSERT INTO `gcr_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `gcr_term_relationships`
+-- Estrutura para tabela `gcr_term_relationships`
 --
 
-DROP TABLE IF EXISTS `gcr_term_relationships`;
-CREATE TABLE IF NOT EXISTS `gcr_term_relationships` (
+CREATE TABLE `gcr_term_relationships` (
   `object_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `term_order` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`object_id`,`term_taxonomy_id`),
-  KEY `term_taxonomy_id` (`term_taxonomy_id`)
+  `term_order` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Extraindo dados da tabela `gcr_term_relationships`
+-- Fazendo dump de dados para tabela `gcr_term_relationships`
 --
 
 INSERT INTO `gcr_term_relationships` (`object_id`, `term_taxonomy_id`, `term_order`) VALUES
@@ -536,24 +521,20 @@ INSERT INTO `gcr_term_relationships` (`object_id`, `term_taxonomy_id`, `term_ord
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `gcr_term_taxonomy`
+-- Estrutura para tabela `gcr_term_taxonomy`
 --
 
-DROP TABLE IF EXISTS `gcr_term_taxonomy`;
-CREATE TABLE IF NOT EXISTS `gcr_term_taxonomy` (
-  `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gcr_term_taxonomy` (
+  `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL,
   `term_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `taxonomy` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `parent` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `count` bigint(20) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`term_taxonomy_id`),
-  UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
-  KEY `taxonomy` (`taxonomy`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `count` bigint(20) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Extraindo dados da tabela `gcr_term_taxonomy`
+-- Fazendo dump de dados para tabela `gcr_term_taxonomy`
 --
 
 INSERT INTO `gcr_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
@@ -564,22 +545,18 @@ INSERT INTO `gcr_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `des
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `gcr_usermeta`
+-- Estrutura para tabela `gcr_usermeta`
 --
 
-DROP TABLE IF EXISTS `gcr_usermeta`;
-CREATE TABLE IF NOT EXISTS `gcr_usermeta` (
-  `umeta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gcr_usermeta` (
+  `umeta_id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `meta_value` longtext COLLATE utf8mb4_unicode_ci,
-  PRIMARY KEY (`umeta_id`),
-  KEY `user_id` (`user_id`),
-  KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `meta_value` longtext COLLATE utf8mb4_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Extraindo dados da tabela `gcr_usermeta`
+-- Fazendo dump de dados para tabela `gcr_usermeta`
 --
 
 INSERT INTO `gcr_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
@@ -598,14 +575,14 @@ INSERT INTO `gcr_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VAL
 (13, 1, 'gcr_user_level', '10'),
 (14, 1, 'dismissed_wp_pointers', 'wp496_privacy'),
 (15, 1, 'show_welcome_panel', '0'),
-(16, 1, 'session_tokens', 'a:5:{s:64:\"d9476f340718dad6cf34f9cf8be522ce3bf381611d8e20033ec41ef810107186\";a:4:{s:10:\"expiration\";i:1539537975;s:2:\"ip\";s:9:\"127.0.0.1\";s:2:\"ua\";s:104:\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36\";s:5:\"login\";i:1538328375;}s:64:\"bcff9ba425433012a950afe93b2b21e922e4f8bf0f5b454b382647ee1ea35a66\";a:4:{s:10:\"expiration\";i:1539177303;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36\";s:5:\"login\";i:1539004503;}s:64:\"c21431d6a1bd386b5f33c8a8773cec09896422485c9f0e36cf32dc152944843f\";a:4:{s:10:\"expiration\";i:1539177342;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36\";s:5:\"login\";i:1539004542;}s:64:\"afabf7ea69f5071133852fcfaa85effab374f0eacb687ff4781a97cb41bc24db\";a:4:{s:10:\"expiration\";i:1539204818;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36\";s:5:\"login\";i:1539032018;}s:64:\"0ca6e0c79e84f7ddc2aa0d50762945830594bc9b5cd35f501f17b79835bcac81\";a:4:{s:10:\"expiration\";i:1539265951;s:2:\"ip\";s:3:\"::1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36\";s:5:\"login\";i:1539093151;}}'),
+(16, 1, 'session_tokens', 'a:3:{s:64:\"d9476f340718dad6cf34f9cf8be522ce3bf381611d8e20033ec41ef810107186\";a:4:{s:10:\"expiration\";i:1539537975;s:2:\"ip\";s:9:\"127.0.0.1\";s:2:\"ua\";s:104:\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36\";s:5:\"login\";i:1538328375;}s:64:\"c00d5043924cb5fc12f08d4bbf68ce680aa3a3a759e6cabe32e05448387b76ba\";a:4:{s:10:\"expiration\";i:1539525602;s:2:\"ip\";s:9:\"127.0.0.1\";s:2:\"ua\";s:104:\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36\";s:5:\"login\";i:1539352802;}s:64:\"ae684b037eedc7cf19eb2811090179fa091a8f330b833b7f13aa394d41082f89\";a:4:{s:10:\"expiration\";i:1540693380;s:2:\"ip\";s:9:\"127.0.0.1\";s:2:\"ua\";s:104:\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36\";s:5:\"login\";i:1539483780;}}'),
 (17, 1, 'gcr_dashboard_quick_press_last_post_id', '55'),
 (18, 1, 'community-events-location', 'a:1:{s:2:\"ip\";s:9:\"127.0.0.0\";}'),
 (19, 1, 'managenav-menuscolumnshidden', 'a:5:{i:0;s:11:\"link-target\";i:1;s:11:\"css-classes\";i:2;s:3:\"xfn\";i:3;s:11:\"description\";i:4;s:15:\"title-attribute\";}'),
 (20, 1, 'metaboxhidden_nav-menus', 'a:2:{i:0;s:22:\"add-post-type-services\";i:1;s:12:\"add-post_tag\";}'),
 (21, 1, 'nav_menu_recently_edited', '2'),
-(22, 1, 'gcr_user-settings', 'libraryContent=browse'),
-(23, 1, 'gcr_user-settings-time', '1538764683'),
+(22, 1, 'gcr_user-settings', 'libraryContent=browse&editor=tinymce'),
+(23, 1, 'gcr_user-settings-time', '1539541217'),
 (24, 1, 'closedpostboxes_sliders', 'a:0:{}'),
 (25, 1, 'metaboxhidden_sliders', 'a:3:{i:0;s:11:\"postexcerpt\";i:1;s:10:\"postcustom\";i:2;s:7:\"slugdiv\";}'),
 (26, 1, 'meta-box-order_sliders', 'a:3:{s:4:\"side\";s:42:\"submitdiv,sliders_categorydiv,postimagediv\";s:6:\"normal\";s:30:\"postexcerpt,postcustom,slugdiv\";s:8:\"advanced\";s:0:\"\";}'),
@@ -613,17 +590,18 @@ INSERT INTO `gcr_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VAL
 (28, 1, 'show_try_gutenberg_panel', '0'),
 (29, 1, 'meta-box-order_dashboard', 'a:4:{s:6:\"normal\";s:60:\"dashboard_quick_press,dashboard_right_now,dashboard_activity\";s:4:\"side\";s:17:\"dashboard_primary\";s:7:\"column3\";s:0:\"\";s:7:\"column4\";s:0:\"\";}'),
 (30, 1, 'closedpostboxes_dashboard', 'a:2:{i:0;s:18:\"dashboard_activity\";i:1;s:17:\"dashboard_primary\";}'),
-(31, 1, 'metaboxhidden_dashboard', 'a:3:{i:0;s:19:\"dashboard_right_now\";i:1;s:18:\"dashboard_activity\";i:2;s:17:\"dashboard_primary\";}');
+(31, 1, 'metaboxhidden_dashboard', 'a:3:{i:0;s:19:\"dashboard_right_now\";i:1;s:18:\"dashboard_activity\";i:2;s:17:\"dashboard_primary\";}'),
+(32, 1, 'closedpostboxes_post', 'a:0:{}'),
+(33, 1, 'metaboxhidden_post', 'a:7:{i:0;s:11:\"postexcerpt\";i:1;s:13:\"trackbacksdiv\";i:2;s:10:\"postcustom\";i:3;s:16:\"commentstatusdiv\";i:4;s:11:\"commentsdiv\";i:5;s:7:\"slugdiv\";i:6;s:9:\"authordiv\";}');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `gcr_users`
+-- Estrutura para tabela `gcr_users`
 --
 
-DROP TABLE IF EXISTS `gcr_users`;
-CREATE TABLE IF NOT EXISTS `gcr_users` (
-  `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gcr_users` (
+  `ID` bigint(20) UNSIGNED NOT NULL,
   `user_login` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `user_pass` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `user_nicename` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -632,21 +610,178 @@ CREATE TABLE IF NOT EXISTS `gcr_users` (
   `user_registered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `user_activation_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `user_status` int(11) NOT NULL DEFAULT '0',
-  `display_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`ID`),
-  KEY `user_login_key` (`user_login`),
-  KEY `user_nicename` (`user_nicename`),
-  KEY `user_email` (`user_email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `display_name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Extraindo dados da tabela `gcr_users`
+-- Fazendo dump de dados para tabela `gcr_users`
 --
 
 INSERT INTO `gcr_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
 (1, 'gcr', '$P$B/UpendA706z.NyV3ucKlfJw1RHiL70', 'gcr', 'rafael_citotame@hotmail.com', '', '2018-09-29 23:18:56', '', 0, 'gcr');
-COMMIT;
 
+--
+-- Índices de tabelas apagadas
+--
+
+--
+-- Índices de tabela `gcr_commentmeta`
+--
+ALTER TABLE `gcr_commentmeta`
+  ADD PRIMARY KEY (`meta_id`),
+  ADD KEY `comment_id` (`comment_id`),
+  ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Índices de tabela `gcr_comments`
+--
+ALTER TABLE `gcr_comments`
+  ADD PRIMARY KEY (`comment_ID`),
+  ADD KEY `comment_post_ID` (`comment_post_ID`),
+  ADD KEY `comment_approved_date_gmt` (`comment_approved`,`comment_date_gmt`),
+  ADD KEY `comment_date_gmt` (`comment_date_gmt`),
+  ADD KEY `comment_parent` (`comment_parent`),
+  ADD KEY `comment_author_email` (`comment_author_email`(10));
+
+--
+-- Índices de tabela `gcr_links`
+--
+ALTER TABLE `gcr_links`
+  ADD PRIMARY KEY (`link_id`),
+  ADD KEY `link_visible` (`link_visible`);
+
+--
+-- Índices de tabela `gcr_options`
+--
+ALTER TABLE `gcr_options`
+  ADD PRIMARY KEY (`option_id`),
+  ADD UNIQUE KEY `option_name` (`option_name`);
+
+--
+-- Índices de tabela `gcr_postmeta`
+--
+ALTER TABLE `gcr_postmeta`
+  ADD PRIMARY KEY (`meta_id`),
+  ADD KEY `post_id` (`post_id`),
+  ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Índices de tabela `gcr_posts`
+--
+ALTER TABLE `gcr_posts`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `post_name` (`post_name`(191)),
+  ADD KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
+  ADD KEY `post_parent` (`post_parent`),
+  ADD KEY `post_author` (`post_author`);
+
+--
+-- Índices de tabela `gcr_termmeta`
+--
+ALTER TABLE `gcr_termmeta`
+  ADD PRIMARY KEY (`meta_id`),
+  ADD KEY `term_id` (`term_id`),
+  ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Índices de tabela `gcr_terms`
+--
+ALTER TABLE `gcr_terms`
+  ADD PRIMARY KEY (`term_id`),
+  ADD KEY `slug` (`slug`(191)),
+  ADD KEY `name` (`name`(191));
+
+--
+-- Índices de tabela `gcr_term_relationships`
+--
+ALTER TABLE `gcr_term_relationships`
+  ADD PRIMARY KEY (`object_id`,`term_taxonomy_id`),
+  ADD KEY `term_taxonomy_id` (`term_taxonomy_id`);
+
+--
+-- Índices de tabela `gcr_term_taxonomy`
+--
+ALTER TABLE `gcr_term_taxonomy`
+  ADD PRIMARY KEY (`term_taxonomy_id`),
+  ADD UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
+  ADD KEY `taxonomy` (`taxonomy`);
+
+--
+-- Índices de tabela `gcr_usermeta`
+--
+ALTER TABLE `gcr_usermeta`
+  ADD PRIMARY KEY (`umeta_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `meta_key` (`meta_key`(191));
+
+--
+-- Índices de tabela `gcr_users`
+--
+ALTER TABLE `gcr_users`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `user_login_key` (`user_login`),
+  ADD KEY `user_nicename` (`user_nicename`),
+  ADD KEY `user_email` (`user_email`);
+
+--
+-- AUTO_INCREMENT de tabelas apagadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `gcr_commentmeta`
+--
+ALTER TABLE `gcr_commentmeta`
+  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de tabela `gcr_comments`
+--
+ALTER TABLE `gcr_comments`
+  MODIFY `comment_ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT de tabela `gcr_links`
+--
+ALTER TABLE `gcr_links`
+  MODIFY `link_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de tabela `gcr_options`
+--
+ALTER TABLE `gcr_options`
+  MODIFY `option_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=287;
+--
+-- AUTO_INCREMENT de tabela `gcr_postmeta`
+--
+ALTER TABLE `gcr_postmeta`
+  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
+--
+-- AUTO_INCREMENT de tabela `gcr_posts`
+--
+ALTER TABLE `gcr_posts`
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+--
+-- AUTO_INCREMENT de tabela `gcr_termmeta`
+--
+ALTER TABLE `gcr_termmeta`
+  MODIFY `meta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de tabela `gcr_terms`
+--
+ALTER TABLE `gcr_terms`
+  MODIFY `term_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT de tabela `gcr_term_taxonomy`
+--
+ALTER TABLE `gcr_term_taxonomy`
+  MODIFY `term_taxonomy_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT de tabela `gcr_usermeta`
+--
+ALTER TABLE `gcr_usermeta`
+  MODIFY `umeta_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+--
+-- AUTO_INCREMENT de tabela `gcr_users`
+--
+ALTER TABLE `gcr_users`
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

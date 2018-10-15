@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param string $slug
+ * @param string $name
+ * @param array $attr
+ */
 function get_template_part_with_attr($slug, $name = null, $attr = []) {
     do_action("get_template_part_{$slug}", $slug, $name);
 
@@ -14,7 +19,7 @@ function get_template_part_with_attr($slug, $name = null, $attr = []) {
         extract($attr, EXTR_SKIP);
     }
 
-	require_once locate_template($templates);
+	require locate_template($templates);
 }
 
 /**
@@ -113,4 +118,12 @@ function getLatestPosts($numberposts = 10, $posttype = 'post')
         'numberposts' => $numberposts,
         'post_type' => $posttype,
     ], false);
+}
+
+/**
+ * @return WP_Query
+ */
+function getServices()
+{
+    return new WP_Query([ 'post_type' => 'services' ]);
 }

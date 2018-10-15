@@ -10,6 +10,9 @@ require_once __DIR__.'/inc/config-wordpress.php';
 /* Define Image Sizes */
 require_once __DIR__.'/inc/image-size.php';
 
+/* Define Custom Filters */
+require_once __DIR__.'/inc/filters.php';
+
 /* Register Menus */
 require_once __DIR__.'/inc/menus.php';
 

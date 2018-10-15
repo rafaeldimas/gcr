@@ -6,7 +6,6 @@
 
 ?>
 
-    </div>
 </div>
 <footer class="site-footer">
     <?php get_template_part('template-parts/footer/top') ?>

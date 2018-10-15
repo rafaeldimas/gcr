@@ -27,4 +27,3 @@
 <?php endif ?>
 
 <div id="content" class="content site-content">
-    <div class="container">

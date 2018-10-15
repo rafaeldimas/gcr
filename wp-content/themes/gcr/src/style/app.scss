@@ -1,12 +1,16 @@
 /* Loading Variable */
-@import './core/all';
+@import "./core/all";
 
 /* Framework */
-@import '~bulma/bulma';
+@import "~bulma/bulma";
+
+/* Framework Utilities */
+@import "~bulma-utilities/sass/bulma-utilities";
 
 /* Loading Layout */
-@import './layout/all';
+@import "./layout/all";
 
 /* Loading Components */
-@import './components/sliders/all';
-@import './components/brand/all';
+@import "./components/sliders/all";
+@import "./components/brand/all";
+@import "./components/service/all";
