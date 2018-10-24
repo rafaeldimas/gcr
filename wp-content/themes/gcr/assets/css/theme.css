@@ -7588,6 +7588,10 @@ label.panel-block {
   .services .bg-service.bg-aling-right {
     background-position-x: right; }
 
-.services .service .content {
-  color: #c39e36; }
+.services .service {
+  max-width: 500px; }
+  .services .service.has-block-left {
+    margin-right: auto; }
+  .services .service.has-block-right {
+    margin-left: auto; }
 

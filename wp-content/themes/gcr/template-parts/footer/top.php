@@ -3,13 +3,13 @@
         <div class="columns">
             <div class="company-info column is-4">
                 <div class="box-brand">
-                    <?php echo getBrandLink('footer-brand') ?>
+                    <?php echo getBrandLink('footer-brand', true) ?>
                 </div>
-                <p class="about-company">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti,
-                    obcaecati eum corporis iure neque fugiat dolorem quae est ipsa optio facilis,
-                    eligendi necessitatibus delectus suscipit quis facere dolor ab vitae!
-                </p>
+                <div class="about-company">
+                    <p class="has-text-centered">
+                        Gustavo Camargo, Marçal & Saggioro Serviços Ltda
+                    </p>
+                </div>
             </div>
             <div class="contact-info column is-4">
                 <div class="columns is-mobile address">

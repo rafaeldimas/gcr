@@ -36,8 +36,14 @@
   }
 
   .service {
-    .content {
-      color: $primaryGold;
+    max-width: 500px;
+
+    &.has-block-left {
+      margin-right: auto;
+    }
+
+    &.has-block-right {
+      margin-left: auto;
     }
   }
 }

@@ -43,9 +43,14 @@ function getCustomLogoAttr() {
  * @param false|string $link
  * @return string
  */
-function getBrandLink($class, $link = false)
+function getBrandLink($class, $isNameComplete = false, $link = false)
 {
-    $brandResource = 'GCR';
+    $brandResource = 'GCR Legalização';
+
+    if($isNameComplete) {
+        $brandResource .= ' Empresarial e Assessoria';
+    }
+
     if (has_custom_logo()) {
         list($imgSrc) = getCustomLogoAttr() ?: [];
         $brandResource = "<img class='brand-image' src='{$imgSrc}'/>";
