@@ -7,11 +7,11 @@
 get_header();
 ?>
 
-<main id="page-main" class="site-page-main" role="page-main">
+<main id="page-main" class="site-page-main has-padding-lr-6" role="page-main">
     <div class="container">
         <?php while (have_posts()) : the_post() ?>
             <div class="columns">
-                <article id="page-contact" class="page page-contact column is-9 has-padding-bt-1 has-padding-lr-6">
+                <article id="page-contact" class="page page-contact column is-9 has-padding-bt-1">
                     <?php get_template_part('template-parts/content-parts/header') ?>
 
                     <div class="page-content">

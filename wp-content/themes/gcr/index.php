@@ -9,7 +9,7 @@ get_header();
 <main id="blog-main" class="site-blog-main" role="blog-main">
 
 <div class="container">
-    <div class="posts has-padding-bt-3">
+    <div class="posts has-padding-bt-3 has-padding-lr-6">
         <h1 class="posts-title has-text-centered has-text-primary">Artigos</h1>
         <div class="posts columns">
             <?php if (have_posts()) : ?>
@@ -21,8 +21,8 @@ get_header();
                     the_posts_pagination([
                         'prev_text' => __('Previous page'),
                         'next_text' => __('Next page'),
-                        ]);
-                        ?>
+                    ]);
+                ?>
             <?php else : ?>
                 <div class="not-posts is-12">
                     <p class="has-text-centered">Nenhum artigo encontrado.</p>

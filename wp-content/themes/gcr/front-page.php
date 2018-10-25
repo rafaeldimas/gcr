@@ -1,6 +1,6 @@
 <?php get_header() ?>
 
-<main id="home-main" class="site-home-main" role="home-main">
+<main id="home-main" class="site-home-main has-padding-lr-6" role="home-main">
 
 <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post() ?>
