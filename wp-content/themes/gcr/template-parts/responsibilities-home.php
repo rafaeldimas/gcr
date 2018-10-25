@@ -4,7 +4,7 @@
             <div class="column is-6">
                 <div class="box">
                     <h2 class="has-text-centered has-text-primary">Assessoria com Responsabilidade</h2>
-                    <div class="content">
+                    <div class="content has-text-justified">
                         <p>
                             O conhecimento da legislação societária é imprescindível para a vida de uma empresa, visto que, uma vez aplicada de maneira correta através das cláusulas contratuais dos instrumentos particulares de constituição ou alteração contratual, poderão trazer tranquilidade e segurança para a pessoa jurídica, bem como para os componentes sociais, no sentido de estarem protegidos entre eles, bem como de terceiros.
                         </p>

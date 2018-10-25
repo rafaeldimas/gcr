@@ -15,7 +15,7 @@ get_header();
                     <?php get_template_part('template-parts/content-parts/header') ?>
 
                     <div class="page-content">
-                        <div class="content">
+                        <div class="content has-text-justified">
                             <?php the_content(); ?>
                         </div>
                     </div>

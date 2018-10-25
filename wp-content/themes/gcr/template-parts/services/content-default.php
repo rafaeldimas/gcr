@@ -15,7 +15,7 @@ $backgroundClass = $hasThumbnail ? "has-margin-bt-1 has-padding-bt-1 bg-service 
 <div class="<?php echo $backgroundClass ?> column is-12 has-padding-lr-6" <?php echo $style ?>>
     <div class="service <?php echo $textAling ?>">
         <h2 class="title has-text-primary"><?php echo $post->post_title ?></h2>
-        <div class="content has-text-primary">
+        <div class="content has-text-primary has-text-justified">
             <?php echo apply_filters('the_content', $post->post_content) ?>
         </div>
     </div>
