@@ -11,6 +11,9 @@
         <!-- About Home -->
         <?php get_template_part('template-parts/about', 'home') ?>
 
+        <!-- Responsibilities -->
+        <?php get_template_part('template-parts/responsibilities', 'home') ?>
+
         <!-- Form Contact Home -->
         <?php get_template_part('template-parts/forms/home') ?>
 

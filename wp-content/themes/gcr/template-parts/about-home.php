@@ -2,6 +2,15 @@
     <div class="about-home has-padding-bt-1">
         <div class="columns is-vcentered">
             <div class="column is-6">
+                <h2 class="has-text-centered has-text-primary">Sobre a Empresa</h2>
+                <div class="content">
+                    <p>
+                        Este escritório de legalização empresarial e assessoria é formado por um quadro de profissionais, graduados e pós graduados na área administrativa e do direito, os quais possuem vasto conhecimento e postulam em diversas áreas no ramo empresarial em razão de todos os seus membros terem executado diversas funções em vários setores na Junta Comercial do Estado de São Paulo, como assessoria técnica, análise de processos, registro, expedição de documentos, dentre outros, o que permitiu profundos conhecimentos nas áreas referentes a registro de aberturas, alterações, arquivamentos, encerramentos e regularização de empresas, independente do tipo ou natureza jurídica.
+                    </p>
+                </div>
+            </div>
+            <div class="column is-6">
+                <h2 class="has-text-centered has-text-primary">Diferenciais</h2>
                 <div class="columns">
                     <div class="list column is-6">
                         <div class="list-item has-addons">
@@ -47,14 +56,6 @@
                             </span>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="column is-6">
-                <h2 class="has-text-centered has-text-primary">Sobre a Empresa</h2>
-                <div class="content">
-                    <p>
-                        Este escritório de legalização empresarial e assessoria é formado por um quadro de profissionais, graduados e pós graduados na área administrativa e do direito, os quais possuem vasto conhecimento e postulam em diversas áreas no ramo empresarial em razão de todos os seus membros terem executado diversas funções em vários setores na Junta Comercial do Estado de São Paulo, como assessoria técnica, análise de processos, registro, expedição de documentos, dentre outros, o que permitiu profundos conhecimentos nas áreas referentes a registro de aberturas, alterações, arquivamentos, encerramentos e regularização de empresas, independente do tipo ou natureza jurídica.
-                    </p>
                 </div>
             </div>
         </div>
