@@ -215,6 +215,6 @@ wp-*.php
 /sitemap.xml
 /sitemap.xml.gz
 /xmlrpc.php
-
+/.htaccess
 
 # End of https://www.gitignore.io/api/node,phpstorm,wordpress,sublimetext,visualstudiocode
