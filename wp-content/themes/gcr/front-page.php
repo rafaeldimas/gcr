@@ -17,6 +17,9 @@
         <!-- Form Contact Home -->
         <?php get_template_part('template-parts/forms/home') ?>
 
+        <!-- Collaborators List -->
+        <?php get_template_part('template-parts/collaborators/list', 'home') ?>
+
 	<?php endwhile ?>
 
 <?php endif ?>

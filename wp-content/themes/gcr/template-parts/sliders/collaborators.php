@@ -1,4 +1,4 @@
-<?php $sliders = getSlidersByType('home') ?>
+<?php /** @var WP_Post $post */ ?>
 <?php if ($sliders->have_posts()) : ?>
     <div class="slider js_slider" data-slider="fullwidth">
         <div class="frame js_frame">

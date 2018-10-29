@@ -11,9 +11,9 @@
             </div>
             <div class="column is-6">
                 <h2 class="has-text-centered has-text-primary">Diferenciais</h2>
-                <div class="columns">
+                <div class="columns has-text-justified">
                     <div class="list column is-6">
-                        <div class="list-item has-addons">
+                        <div class="list-item has-addons has-margin-bt-5">
                             <div class="icon has-text-secundary">
                                 <i class="fas fa-check"></i>
                             </div>
@@ -21,7 +21,7 @@
                                 Terceirizar, dando ou mantendo a tranquilidade, qualidade e agilidade de todos os serviços em determinadas repartições públicas (Junta Comercial do Estado de São Paulo e demais Estados, Cartório de Registro de Pessoa Jurídica, Receita Federal do Brasil, Posto Fiscal/SEFAZ, Prefeitura Municipal de Ribeirão Preto, etc) com eficiência e resultado.
                             </span>
                         </div>
-                        <div class="list-item has-addons">
+                        <div class="list-item has-addons has-margin-bt-5">
                             <div class="icon has-text-secundary">
                                 <i class="fas fa-check"></i>
                             </div>
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="list column is-6">
-                        <div class="list-item has-addons">
+                        <div class="list-item has-addons has-margin-bt-5">
                             <div class="icon has-text-secundary">
                                 <i class="fas fa-check"></i>
                             </div>
@@ -39,7 +39,7 @@
                                 Diversificação de serviços de assessoria empresarial, disponibilizando sempre uma solução para os seus clientes de forma inovadora no mercado.
                             </span>
                         </div>
-                        <div class="list-item has-addons">
+                        <div class="list-item has-addons has-margin-bt-5">
                             <div class="icon has-text-secundary">
                                 <i class="fas fa-check"></i>
                             </div>
@@ -47,7 +47,7 @@
                                 Desenvolver o trabalho atuando de forma sigilosa e discreta respeitando os princípios éticos que norteiam nossa prestação de serviços.
                             </span>
                         </div>
-                        <div class="list-item has-addons">
+                        <div class="list-item has-addons has-margin-bt-5">
                             <div class="icon has-text-secundary">
                                 <i class="fas fa-check"></i>
                             </div>
