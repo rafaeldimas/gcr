@@ -6,9 +6,11 @@
                     <?php echo getBrandLink('footer-brand', true) ?>
                 </div>
                 <div class="about-company">
-                    <p class="has-text-centered">
-                        Gustavo Camargo, Marçal & Saggioro Serviços Ltda
-                    </p>
+                    <div class="has-text-centered">
+                        <h2>GCR</h2>
+                        <h3 class="has-text-secondary">LEGALIZAÇÃO EMPRESARIAL E ASSESSORIA</h3>
+                        <p>Gustavo Camargo, Marçal & Saggioro Serviços Ltda</p>
+                    </div>
                 </div>
             </div>
             <div class="contact-info column is-4">
