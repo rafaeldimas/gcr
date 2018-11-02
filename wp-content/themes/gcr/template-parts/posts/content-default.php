@@ -1,4 +1,4 @@
-<div class="post column is-3">
+<div class="post column is-4">
     <div class="card">
         <?php if (has_post_thumbnail()) : ?>
             <div class="post-thumbnail card-image">

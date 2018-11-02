@@ -25,6 +25,7 @@
                 <a href="https://goo.gl/maps/jZMhcJPCVn72">
                     Rua Hermes Fontes, 183 <br>
                     Salas 03 e 05, Vila Seixas <br>
+                    Riberão Preto <br>
                     CEP 14020-090
                 </a>
             </div>

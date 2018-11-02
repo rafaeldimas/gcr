@@ -17,9 +17,10 @@
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <div class="column is-narrow box-text">
-                        <a href="https://goo.gl/maps/jZMhcJPCVn72">
+                        <a target="_blank" rel="noopener noreferrer" href="https://goo.gl/maps/jZMhcJPCVn72">
                             Rua Hermes Fontes, 183 <br>
                             Salas 03 e 05, Vila Seixas <br>
+                            Riberão Preto <br>
                             CEP 14020-090
                         </a>
                     </div>
@@ -29,7 +30,7 @@
                         <i class="fas fa-envelope"></i>
                     </div>
                     <div class="column is-narrow box-text">
-                        <a href="mail:contato@gcrlegalizacao.com.br">contato@gcrlegalizacao.com.br</a>
+                        <a target="_blank" rel="noopener noreferrer" href="mail:contato@gcrlegalizacao.com.br">contato@gcrlegalizacao.com.br</a>
                     </div>
                 </div>
                 <div class="columns is-mobile tels">
@@ -37,7 +38,7 @@
                         <i class="fas fa-phone"></i>
                     </div>
                     <div class="column is-narrow box-text">
-                        <a class="tel" href="tel:+551636106096">(16) 3610-6096</a> - <a class="tel" href="tel:+551636257136">(16) 3625-7136</a>
+                        <a class="tel" target="_blank" rel="noopener noreferrer" href="tel:+551636106096">(16) 3610-6096</a> - <a class="tel" href="tel:+551636257136">(16) 3625-7136</a>
                     </div>
                 </div>
             </div>

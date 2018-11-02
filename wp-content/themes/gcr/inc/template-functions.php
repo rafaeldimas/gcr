@@ -132,3 +132,11 @@ function getServices()
 {
     return new WP_Query([ 'post_type' => 'services' ]);
 }
+
+/**
+ * @return WP_Query
+ */
+function getUsefulLinks()
+{
+    return new WP_Query([ 'post_type' => 'useful_links' ]);
+}
