@@ -1,3 +1,7 @@
 .site-header {
-    background-color: $blueDarken;
+  background-color: $blueDarken;
+
+  .brand-image {
+    max-height: 2.75rem;
+  }
 }
