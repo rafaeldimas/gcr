@@ -140,3 +140,11 @@ function getUsefulLinks()
 {
     return new WP_Query([ 'post_type' => 'useful_links' ]);
 }
+
+/**
+ * @return WP_Query
+ */
+function getCurriculums()
+{
+    return new WP_Query([ 'post_type' => 'curriculums' ]);
+}

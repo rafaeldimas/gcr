@@ -23,7 +23,9 @@ get_header();
 
                 <?php get_template_part('template-parts/aside/contact') ?>
             </div>
-        <?php endwhile ?>
+            <?php endwhile ?>
+
+            <?php get_template_part('template-parts/curriculums/list', 'about') ?>
     </div>
 </main>
 

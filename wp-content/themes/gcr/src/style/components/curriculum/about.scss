@@ -1,0 +1,18 @@
+.curriculumns {
+  .curriculum {
+    padding: 15px;
+    min-height: 350px;
+    border: 1px solid $goldDarkenLigth;
+
+    .photo {
+      margin: 0 auto 15px;
+      width: 100px;
+      height: 100px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border: 2px solid $primaryBlue;
+      border-radius: 50%;
+    }
+  }
+}
