@@ -2,6 +2,11 @@
   background-color: $blueDarken;
 
   .brand-image {
-    max-height: 2.75rem;
+    max-width: 2.75rem;
+    transition: all 0.5s cubic-bezier(1, -1, 1, 2);
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 }
