@@ -103,15 +103,94 @@ function getNavbarMainMenuItems() {
 /**
  * @return string
  */
+function getNavbarEnd($items)
+{
+    $output = '';
+    $output .= '<div class="navbar-end">';
+    $output .= $items;
+    $output .= '</div>';
+
+    return $output;
+}
+
+/**
+ * @return string
+ */
+function getNavbarEndItem($content)
+{
+    $output = '';
+    $output .= '<div class="navbar-item">';
+    $output .= $content;
+    $output .= '</div>';
+
+    return $output;
+}
+
+/**
+ * @return string
+ */
+function getButtonSecundary($label, $url, $isStrong = false)
+{
+    $output = '';
+    $output .= "<a class='button is-secundary' href='{$url}'>";
+    $output .=      $isStrong ? '<strong>' : '';
+    $output .=          $label;
+    $output .=      $isStrong ? '</strong>' : '';
+    $output .= '</a>';
+
+    return $output;
+}
+
+/**
+ * @return string
+ */
+function getLinkPrivateAreaForMenu()
+{
+    $pageId = getPageIdByTemplateName('private-area-login');
+
+    if (!$pageId) return '';
+
+    return getNavbarEnd(
+        getNavbarEndItem(
+            getButtonSecundary(
+                'Área restrita',
+                get_permalink($pageId),
+                true
+            )
+        )
+    );
+}
+
+/**
+ * @return string
+ */
 function getNavbarMainMenu()
 {
     $output = '';
     $output .= '<nav class="navbar container" role="navigation" aria-label="main navigation">';
     $output .= getNavbarButtonAndBrand();
     $output .= getNavbarMainMenuItems();
+    $output .= getLinkPrivateAreaForMenu();
     $output .= '</nav>';
 
     return $output;
+}
+
+/**
+ * @param string $templateName
+ * @return int|bool
+ */
+function getPageIdByTemplateName($templateName)
+{
+    $args = [
+        'post_type' => 'page',
+        'fields' => 'ids',
+        'nopaging' => true,
+        'meta_key' => '_wp_page_template',
+        'meta_value' => "templates/{$templateName}.php",
+    ];
+    $pages = get_posts($args);
+    return !empty($pages) ? $pages[0] : false;
 }
 
 /**

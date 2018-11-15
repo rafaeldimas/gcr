@@ -1,0 +1,9 @@
+.button.is-secundary {
+  background-color: $primaryGold;
+  border-color: transparent;
+  color: #fff;
+
+  &:hover {
+    background-color: $goldDarken;
+  }
+}
