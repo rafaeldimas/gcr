@@ -1,0 +1,13 @@
+[data-slider="carousel"] {
+    width: 100%;
+    max-width: 100%;
+
+    .item {
+        width: 250px;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        cursor: pointer;
+    }
+}
