@@ -19,9 +19,9 @@
             text-align: center;
 
             h1, h2, h3, h4, h5, h6, p {
-                color: #eee;
+                color: $primaryGold;
                 font-weight: 700;
-                text-shadow: 0 0 5px #000;
+                text-shadow: 0 0 1px $primaryBlue;
             }
 
             h1    { font-size: 50px }
