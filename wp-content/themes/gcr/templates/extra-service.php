@@ -16,7 +16,7 @@ get_header();
 
                     <div class="content">
                         <article class="message is-primary">
-                            <div class="message-body" data-extra-service-message>
+                            <div class="message-body has-text-justified" data-extra-service-message>
                                 <?php the_content() ?>
                             </div>
                         </article>
