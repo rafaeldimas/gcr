@@ -14,7 +14,7 @@
                 <i class="fas fa-phone"></i>
             </div>
             <div class="column is-narrow box-text">
-                <a class="tel" href="tel:+551636106096">(16) 3610-6096</a> - <a class="tel" href="tel:+551636257136">(16) 3625-7136</a>
+                <a class="tel" href="tel:+551636106096">(16) 3610-6096</a>
             </div>
         </div>
         <div class="columns is-mobile address">
