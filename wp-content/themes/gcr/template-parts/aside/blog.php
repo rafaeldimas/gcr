@@ -8,7 +8,7 @@
         <div class="useful-link">
             <a target="_blank" rel="noopener noreferrer" href="<?php echo get_the_content() ?>" class="link has-flex-center-items">
                 <?php if (has_post_thumbnail()) : ?>
-                    <?php the_post_thumbnail('full', [ 'style' => 'max-width: 60px;' ]) ?>
+                    <?php the_post_thumbnail('full') ?>
                 <?php endif ?>
 
                 <span><?php the_title() ?></span>

@@ -20,14 +20,14 @@ msgid "Twenty Sixteen is a modernized take on an ever-popular WordPress layout �
 msgstr "Twenty Sixteen é uma abordagem modernizada de um sempre popular template para WordPress — O cabeçalho horizontal com barra lateral direita opcional funciona perfeitamente para blogs e sites. Tem opções de cores personalizadas com belos esquemas de cores por padrão, uma harmoniosa grade fluida usando abordagem mobile-first e um polimento impecável em cada detalhe. Twenty Sixteen fará seu WordPress parecer lindo em todos os lugares."
 
 #. translators: %s: Name of current post
-#: template-parts/content.php:28 inc/template-tags.php:184
+#: inc/template-tags.php:184 template-parts/content.php:28
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Continue lendo<span class=\"screen-reader-text\"> \"%s\"</span>"
 
 #. translators: %s: Name of current post
-#: template-parts/content.php:49 template-parts/content-page.php:37
-#: template-parts/content-search.php:28 template-parts/content-search.php:43
-#: template-parts/content-single.php:45 image.php:84
+#: image.php:84 template-parts/content.php:49
+#: template-parts/content-single.php:45 template-parts/content-search.php:28
+#: template-parts/content-search.php:43 template-parts/content-page.php:37
 msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Editar<span class=\"screen-reader-text\"> \"%s\"</span>"
 
@@ -200,8 +200,8 @@ msgctxt "Used before full size attachment link."
 msgid "Full size"
 msgstr "Tamanho completo"
 
-#: template-parts/content.php:33 template-parts/content-page.php:23
-#: template-parts/content-single.php:25 image.php:56
+#: image.php:56 template-parts/content.php:33
+#: template-parts/content-single.php:25 template-parts/content-page.php:23
 msgid "Pages:"
 msgstr "Páginas"
 
@@ -269,11 +269,11 @@ msgstr "ligada"
 msgid "Sidebar"
 msgstr "Lateral"
 
-#: functions.php:89 header.php:62
+#: header.php:62 functions.php:89
 msgid "Social Links Menu"
 msgstr "Menu de links sociais"
 
-#: functions.php:88 header.php:51
+#: header.php:51 functions.php:88
 msgid "Primary Menu"
 msgstr "Menu principal"
 
@@ -293,17 +293,17 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] "%1$s comentário em &ldquo;%2$s&rdquo;"
 msgstr[1] "%1$s comentários em &ldquo;%2$s&rdquo;"
 
-#: archive.php:51 template-parts/content.php:37
-#: template-parts/content-page.php:27 template-parts/content-single.php:29
-#: search.php:39 index.php:48 image.php:60
+#: index.php:48 archive.php:51 search.php:39 image.php:60
+#: template-parts/content.php:37 template-parts/content-single.php:29
+#: template-parts/content-page.php:27
 msgid "Page"
 msgstr "Página"
 
-#: archive.php:50 search.php:38 index.php:47
+#: index.php:47 archive.php:50 search.php:38
 msgid "Next page"
 msgstr "Próxima página"
 
-#: archive.php:49 search.php:37 index.php:46
+#: index.php:46 archive.php:49 search.php:37
 msgid "Previous page"
 msgstr "Página anterior"
 

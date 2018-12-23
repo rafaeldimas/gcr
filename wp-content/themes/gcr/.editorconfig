@@ -10,5 +10,8 @@ insert_final_newline = true
 [*.{js,json}]
 indent_size = 2
 
+[*.{scss,sass,css}]
+indent_size = 2
+
 [*.php]
 indent_size = 4
