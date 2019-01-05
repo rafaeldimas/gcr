@@ -12,9 +12,7 @@ export default (lory, autoPlay) => {
     if (numberOfSlider > 2) {
       options.infinite = 1
     }
-    console.log(numberOfSlider)
     let loryElement = lory(element, options)
-    console.log(numberOfSlider)
 
     if (options.autoPlay && numberOfSlider > 2) {
       autoPlay(loryElement, element, options)
