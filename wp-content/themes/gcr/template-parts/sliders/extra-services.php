@@ -9,8 +9,8 @@
                 <?php foreach ($sliders->posts as $post) : ?>
                     <?php $postThumbnailUrl = get_the_post_thumbnail_url($post->ID, 'slider-carousel') ?>
                     <?php $style = $postThumbnailUrl ? "style='background-image: url({$postThumbnailUrl})'" : '' ?>
-                    <li 
-                        class="item js_slide" 
+                    <li
+                        class="item js_slide"
                         <?php echo $style ?>
                         data-extra-service-name="<?php echo $post->post_title ?>"
                         data-extra-service-description="<?php echo $post->post_content ?>">
@@ -26,7 +26,7 @@
         <div class="column">
             <p class="has-text-primary has-text-centered">
                 Nenhum serviço extra cadastrado,
-                entre em contato por este 
+                entre em contato por este
                 <a href="<?php echo get_permalink(getPageIdByTemplateName('contact')) ?>">formulário</a>
                 para maiores informações
             </p>

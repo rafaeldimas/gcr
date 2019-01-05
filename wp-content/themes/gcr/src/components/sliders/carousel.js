@@ -1,6 +1,7 @@
 const el = document.querySelectorAll('*[data-slider=carousel]')
 const options = {
   autoPlay: true,
+  infinite: 1,
   slideAutoPlaySpeed: 3000,
   enableMouseEvents: true,
   slideSpeed: 1000
