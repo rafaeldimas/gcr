@@ -1,7 +1,7 @@
-export default (loryElement, options) => {
+import animateAutoPlay from './animateAutoPlay'
+
+export default (loryElement, element, options) => {
   const slideAutoPlaySpeed = options.slideAutoPlaySpeed || 5000
 
-  setInterval(() => {
-    loryElement.next()
-  }, slideAutoPlaySpeed)
+  animateAutoPlay({ loryElement, element, slideAutoPlaySpeed })
 }

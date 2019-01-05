@@ -11,7 +11,7 @@ export default (lory, autoPlay) => {
     let loryElement = lory(element, options)
 
     if (options.autoPlay) {
-      autoPlay(loryElement, options)
+      autoPlay(loryElement, element, options)
     }
   })
 }

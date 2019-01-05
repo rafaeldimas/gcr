@@ -1,13 +1,25 @@
 [data-slider="carousel"] {
-    width: 100%;
+  width: 100%;
+  max-width: 100%;
+
+  .frame {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
     max-width: 100%;
 
-    .item {
+    .slides {
+      margin-left: 0;
+      margin-top: 0;
+
+      .item {
         width: 250px;
         height: 100px;
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
         cursor: pointer;
+      }
     }
+  }
 }
