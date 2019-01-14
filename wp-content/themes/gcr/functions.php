@@ -24,3 +24,8 @@ require_once __DIR__.'/inc/posttypes/all.php';
 
 /* Helpers functions for templates */
 require_once __DIR__.'/inc/template-functions.php';
+
+
+
+
+
