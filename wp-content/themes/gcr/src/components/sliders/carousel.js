@@ -9,12 +9,10 @@ const options = {
 export default (lory, autoPlay) => {
   Array.prototype.slice.call(el).forEach(function (element) {
     const numberOfSlider = element.querySelector('.slides').childElementCount
-    if (numberOfSlider > 2) {
-      options.infinite = 1
-    }
+
     let loryElement = lory(element, options)
 
-    if (options.autoPlay && numberOfSlider > 2) {
+    if (options.autoPlay && numberOfSlider > 4) {
       autoPlay(loryElement, element, options)
     }
   })

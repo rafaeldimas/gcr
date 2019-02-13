@@ -15,10 +15,6 @@ msgstr ""
 msgid "Twenty Nineteen"
 msgstr "Twenty Nineteen"
 
-#. Description of the theme
-msgid "A new Gutenberg-ready theme."
-msgstr "Um novo tema preparado para Gutenberg"
-
 #: image.php:87
 msgctxt "Parent post link"
 msgid "<span class=\"meta-nav\">Published in</span><br><span class=\"post-title\">%title</span>"
@@ -38,7 +34,7 @@ msgstr "O Twenty Nineteen requer pelo menos a versão 4.7 do WordPress. Você es
 msgid "Back"
 msgstr "Voltar"
 
-#: inc/template-functions.php:208
+#: inc/template-functions.php:209
 msgid "More"
 msgstr "Mais"
 
@@ -154,9 +150,9 @@ msgstr "Anteriores"
 msgid "Next"
 msgstr "Próximo"
 
-#: image.php:52 template-parts/content/content.php:49
+#: image.php:52 template-parts/content/content-page.php:27
+#: template-parts/content/content.php:49
 #: template-parts/content/content-single.php:40
-#: template-parts/content/content-page.php:27
 msgid "Pages:"
 msgstr "Páginas"
 
@@ -239,7 +235,7 @@ msgstr "Comentários"
 msgid "Leave a comment"
 msgstr "Deixe um comentário"
 
-#: classes/class-twentynineteen-walker-comment.php:92
+#: classes/class-twentynineteen-walker-comment.php:100
 msgid "Your comment is awaiting moderation."
 msgstr "O seu comentário está aguardando moderação."
 
@@ -259,12 +255,12 @@ msgstr "Publicado por"
 msgid "Archives:"
 msgstr "Arquivos:"
 
-#: classes/class-twentynineteen-walker-comment.php:87
+#: classes/class-twentynineteen-walker-comment.php:95
 msgid "Edit"
 msgstr "Editar"
 
 #. translators: 1: comment date, 2: comment time
-#: classes/class-twentynineteen-walker-comment.php:79
+#: classes/class-twentynineteen-walker-comment.php:87
 msgid "%1$s at %2$s"
 msgstr "%1$s às %2$s"
 
@@ -272,10 +268,10 @@ msgstr "%1$s às %2$s"
 msgid "Post Type Archives: "
 msgstr "Arquivos de tipo de post:"
 
-#. translators: %s: Name of current post. Only visible to screen readers.
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:120 template-parts/content/content-page.php:41
-#: template-parts/header/entry-header.php:32
+#. translators: %s: Name of current post. Only visible to screen readers.
+#: template-parts/content/content-page.php:41
+#: template-parts/header/entry-header.php:32 inc/template-tags.php:120
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr "Editar <span class=\"screen-reader-text\">%s</span>"
 
@@ -343,7 +339,7 @@ msgstr "Resultados da busca por:"
 msgid "Join the Conversation"
 msgstr "Participe da discussão"
 
-#: classes/class-twentynineteen-walker-comment.php:59
+#: classes/class-twentynineteen-walker-comment.php:67
 msgid "%s <span class=\"screen-reader-text says\">says:</span>"
 msgstr "%s <span class=\"screen-reader-text says\">diz:</span>"
 
