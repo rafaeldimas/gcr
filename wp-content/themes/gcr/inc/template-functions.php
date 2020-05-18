@@ -146,15 +146,15 @@ function getButtonSecundary($label, $url, $isStrong = false)
  */
 function getLinkPrivateAreaForMenu()
 {
-    $pageId = getPageIdByTemplateName('private-area-login');
+    // $pageId = getPageIdByTemplateName('private-area-login');
 
-    if (!$pageId) return '';
+    // if (!$pageId) return '';
 
     return getNavbarEnd(
         getNavbarEndItem(
             getButtonSecundary(
-                'Área restrita',
-                get_permalink($pageId),
+                'Área restrita - Elabore Rápido',
+                'https://arearestrita.gcrlegalizacao.com.br/login',
                 true
             )
         )
