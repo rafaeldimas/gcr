@@ -13,7 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.1.0",
-    "@babel/core": "^7.1.0",
+    "@babel/core": "^7.20.7",
     "@babel/preset-env": "^7.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "@fortawesome/free-solid-svg-icons": "^5.5.0",
